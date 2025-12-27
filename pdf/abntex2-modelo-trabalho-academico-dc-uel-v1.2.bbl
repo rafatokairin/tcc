@@ -1,0 +1,365 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
+
+\bibitem{nasteski2017overview}
+\abntrefinfo{Nasteski}{NASTESKI}{2017}
+{NASTESKI, V. An overview of the supervised machine learning methods.
+\emph{Horizons. b}, v.~4, n. 51-62, p.~56, 2017.}
+
+\bibitem{wu2018development}
+\abntrefinfo{Wu e Feng}{WU; FENG}{2018}
+{WU, Y.-c.; FENG, J.-w. Development and application of artificial neural network.
+\emph{Wireless Personal Communications}, Springer, v.~102, p. 1645--1656, 2018.}
+
+\bibitem{ding2018activation}
+\abntrefinfo{Ding, Qian e Zhou}{DING; QIAN; ZHOU}{2018}
+{DING, B.; QIAN, H.; ZHOU, J. Activation functions and their characteristics in deep neural networks. In:  IEEE. \emph{2018 Chinese control and decision conference (CCDC)}. [S.l.], 2018. p. 1836--1841.}
+
+\bibitem{massaoudi2024machine}
+\abntrefinfo{Massaoudi et al.}{MASSAOUDI et al.}{2024}
+{MASSAOUDI, A. et al. Machine learning models for modeling the biosorption of fe (iii) ions by activated carbon from olive stone.
+\emph{Neural Computing and Applications}, Springer, v.~36, n.~21, p. 13357--13372, 2024.}
+
+\bibitem{rguibi2022cxai}
+\abntrefinfo{Rguibi et al.}{RGUIBI et al.}{2022}
+{RGUIBI, Z. et al. Cxai: Explaining convolutional neural networks for medical imaging diagnostic.
+\emph{Electronics}, MDPI, v.~11, n.~11, p.~1775, 2022.}
+
+\bibitem{goodfellow2016deep}
+\abntrefinfo{Goodfellow, Bengio e Courville}{GOODFELLOW; BENGIO; COURVILLE}{2016}
+{GOODFELLOW, I.; BENGIO, Y.; COURVILLE, A. \emph{Deep Learning}. [S.l.]: MIT Press, 2016.}
+
+\bibitem{rakshit2021cross}
+\abntrefinfo{Rakshit et al.}{RAKSHIT et al.}{2021}
+{RAKSHIT, R.~D. et al. Cross-resolution face identification using deep-convolutional neural network.
+\emph{Multimedia Tools and Applications}, Springer, v.~80, p. 20733--20758, 2021.}
+
+\bibitem{ahmed2022classification}
+\abntrefinfo{Ahmed e Sabab}{AHMED; SABAB}{2022}
+{AHMED, T.; SABAB, N. H.~N. Classification and understanding of cloud structures via satellite images with efficientunet.
+\emph{SN Computer Science}, Springer, v.~3, n.~1, p.~99, 2022.}
+
+\bibitem{patil2023wgan}
+\abntrefinfo{Patil, Patil e Agrawal}{PATIL; PATIL; AGRAWAL}{2023}
+{PATIL, M.; PATIL, M.~M.; AGRAWAL, S. Wgan for data augmentation. In:  \emph{GANs for Data Augmentation in Healthcare}. [S.l.]: Springer, 2023. p. 223--241.}
+
+\bibitem{li2025conditional}
+\abntrefinfo{Li, Dong e Qiu}{LI; DONG; QIU}{2025}
+{LI, Y.; DONG, B.; QIU, Y. Conditional generative adversarial network (cgan) for generating building load profiles with photovoltaics and electric vehicles.
+\emph{Energy and Buildings}, Elsevier, v.~335, p. 115584, 2025.}
+
+\bibitem{feng2018breast}
+\abntrefinfo{Feng et al.}{FENG et al.}{2018}
+{FENG, Y. et al. Breast cancer development and progression: Risk factors, cancer stem cells, signaling pathways, genomics, and molecular pathogenesis.
+\emph{Genes \& diseases}, Elsevier, v.~5, n.~2, p. 77--106, 2018.}
+
+\bibitem{precoce2004controle}
+\abntrefinfo{Precoce}{PRECOCE}{2004}
+{PRECOCE, D. Controle do c{\^a}ncer de mama-documento de consenso.
+\emph{Rev Bras Cancerol}, v.~50, n.~2, p. 77--90, 2004.}
+
+\bibitem{azevedo2016importancia}
+\abntrefinfo{Azevedo, Ger{\'o}tica e Sanches}{AZEVEDO; GER{\'O}TICA; SANCHES}{2016}
+{AZEVEDO, R.~L.; GER{\'O}TICA, R. M.~G.; SANCHES, T.~P. A import{\^a}ncia da mamografia no diagn{\'o}stico precoce do c{\^a}ncer de mama.
+\emph{UNILUS Ensino e Pesquisa}, v.~13, n.~30, p.~251, 2016.}
+
+\bibitem{obuchowicz2020interobserver}
+\abntrefinfo{Obuchowicz, Oszust e Piorkowski}{OBUCHOWICZ; OSZUST; PIORKOWSKI}{2020}
+{OBUCHOWICZ, R.; OSZUST, M.; PIORKOWSKI, A. Interobserver variability in quality assessment of magnetic resonance images.
+\emph{BMC Medical Imaging}, Springer, v.~20, n.~1, p.~109, 2020.}
+
+\bibitem{erickson2017machine}
+\abntrefinfo{Erickson}{ERICKSON}{2017}
+{ERICKSON, B.~J. Machine learning: discovering the future of medical imaging.
+\emph{Journal of digital imaging}, Springer, v.~30, n.~4, p. 391--391, 2017.}
+
+\bibitem{lecun2015deep}
+\abntrefinfo{LeCun, Bengio e Hinton}{LECUN; BENGIO; HINTON}{2015}
+{LECUN, Y.; BENGIO, Y.; HINTON, G. Deep learning.
+\emph{nature}, Nature Publishing Group UK London, v.~521, n.~7553, p. 436--444, 2015.}
+
+\bibitem{mendel2019transfer}
+\abntrefinfo{Mendel et al.}{MENDEL et al.}{2019}
+{MENDEL, K. et al. Transfer learning from convolutional neural networks for computer-aided diagnosis: a comparison of digital breast tomosynthesis and full-field digital mammography.
+\emph{Academic radiology}, Elsevier, v.~26, n.~6, p. 735--743, 2019.}
+
+\bibitem{gonzalez2009digital}
+\abntrefinfo{Gonzalez}{GONZALEZ}{2009}
+{GONZALEZ, R.~C. \emph{Digital image processing}. [S.l.]: Pearson education india, 2009.}
+
+\bibitem{szeliski2022computer}
+\abntrefinfo{Szeliski}{SZELISKI}{2022}
+{SZELISKI, R. \emph{Computer vision: algorithms and applications}. [S.l.]: Springer Nature, 2022.}
+
+\bibitem{lowe2004distinctive}
+\abntrefinfo{Lowe}{LOWE}{2004}
+{LOWE, D.~G. Distinctive image features from scale-invariant keypoints.
+\emph{International journal of computer vision}, Springer, v.~60, p. 91--110, 2004.}
+
+\bibitem{bay2006surf}
+\abntrefinfo{Bay, Tuytelaars e Gool}{BAY; TUYTELAARS; GOOL}{2006}
+{BAY, H.; TUYTELAARS, T.; GOOL, L. V. Surf: Speeded up robust features. In:  SPRINGER. \emph{Computer Vision--ECCV 2006: 9th European Conference on Computer Vision, Graz, Austria, May 7-13, 2006. Proceedings, Part I 9}. [S.l.], 2006. p. 404--417.}
+
+\bibitem{li2009markov}
+\abntrefinfo{Li}{LI}{2009}
+{LI, S.~Z. \emph{Markov random field modeling in image analysis}. [S.l.]: Springer Science \& Business Media, 2009.}
+
+\bibitem{krizhevsky2012imagenet}
+\abntrefinfo{Krizhevsky, Sutskever e Hinton}{KRIZHEVSKY; SUTSKEVER; HINTON}{2012}
+{KRIZHEVSKY, A.; SUTSKEVER, I.; HINTON, G.~E. Imagenet classification with deep convolutional neural networks.
+\emph{Advances in neural information processing systems}, v.~25, 2012.}
+
+\bibitem{jain2000statistical}
+\abntrefinfo{Jain, Duin e Mao}{JAIN; DUIN; MAO}{2000}
+{JAIN, A.~K.; DUIN, R. P.~W.; MAO, J. Statistical pattern recognition: A review.
+\emph{IEEE Transactions on pattern analysis and machine intelligence}, Ieee, v.~22, n.~1, p. 4--37, 2000.}
+
+\bibitem{janai2020computer}
+\abntrefinfo{Janai et al.}{JANAI et al.}{2020}
+{JANAI, J. et al. Computer vision for autonomous vehicles: Problems, datasets and state of the art.
+\emph{Foundations and trends{\textregistered} in computer graphics and vision}, Now Publishers, Inc., v.~12, n.~1--3, p. 1--308, 2020.}
+
+\bibitem{kamilaris2018deep}
+\abntrefinfo{Kamilaris e Prenafeta-Bold{\'u}}{KAMILARIS; PRENAFETA-BOLD{\'U}}{2018}
+{KAMILARIS, A.; PRENAFETA-BOLD{\'U}, F.~X. Deep learning in agriculture: A survey.
+\emph{Computers and electronics in agriculture}, Elsevier, v.~147, p. 70--90, 2018.}
+
+\bibitem{litjens2017survey}
+\abntrefinfo{Litjens et al.}{LITJENS et al.}{2017}
+{LITJENS, G. et al. A survey on deep learning in medical image analysis.
+\emph{Medical image analysis}, Elsevier, v.~42, p. 60--88, 2017.}
+
+\bibitem{greenspan2016guest}
+\abntrefinfo{Greenspan, Ginneken e Summers}{GREENSPAN; GINNEKEN; SUMMERS}{2016}
+{GREENSPAN, H.; GINNEKEN, B. V.; SUMMERS, R.~M. Guest editorial deep learning in medical imaging: Overview and future promise of an exciting new technique.
+\emph{IEEE transactions on medical imaging}, IEEE, v.~35, n.~5, p. 1153--1159, 2016.}
+
+\bibitem{shen2017deep}
+\abntrefinfo{Shen, Wu e Suk}{SHEN; WU; SUK}{2017}
+{SHEN, D.; WU, G.; SUK, H.-I. Deep learning in medical image analysis.
+\emph{Annual review of biomedical engineering}, Annual Reviews, v.~19, n.~1, p. 221--248, 2017.}
+
+\bibitem{howard2017mobilenets}
+\abntrefinfo{Howard et al.}{HOWARD et al.}{2017}
+{HOWARD, A.~G. et al. Mobilenets: Efficient convolutional neural networks for mobile vision applications.
+\emph{arXiv preprint arXiv:1704.04861}, 2017.}
+
+\bibitem{mitchell1997machine}
+\abntrefinfo{Mitchell e Mitchell}{MITCHELL; MITCHELL}{1997}
+{MITCHELL, T.~M.; MITCHELL, T.~M. \emph{Machine learning}. [S.l.]: McGraw-hill New York, 1997. v.~1.}
+
+\bibitem{alpaydin2020introduction}
+\abntrefinfo{Alpaydin}{ALPAYDIN}{2020}
+{ALPAYDIN, E. \emph{Introduction to machine learning}. [S.l.]: MIT press, 2020.}
+
+\bibitem{bishop2006pattern}
+\abntrefinfo{Bishop e Nasrabadi}{BISHOP; NASRABADI}{2006}
+{BISHOP, C.~M.; NASRABADI, N.~M. \emph{Pattern recognition and machine learning}. [S.l.]: Springer, 2006. v.~4.}
+
+\bibitem{geron2019hands}
+\abntrefinfo{G{\'e}ron}{G{\'E}RON}{2019}
+{G{\'E}RON, A. Hands-on machine learning with scikit-learn, keras, and tensorflow: concepts.
+\emph{Aur{\'e}lien G{\'e}ron-Google Kitaplar, yy https://books. google. com. tr/books}, 2019.}
+
+\bibitem{hastie2009elements}
+\abntrefinfo{Hastie et al.}{HASTIE et al.}{2009}
+{HASTIE, T. et al. \emph{The elements of statistical learning}. [S.l.]: Citeseer, 2009.}
+
+\bibitem{reddy2018data}
+\abntrefinfo{Reddy}{REDDY}{2018}
+{REDDY, C.~K. \emph{Data clustering: algorithms and applications}. [S.l.]: Chapman and Hall/CRC, 2018.}
+
+\bibitem{tan2016introduction}
+\abntrefinfo{Tan, Steinbach e Kumar}{TAN; STEINBACH; KUMAR}{2016}
+{TAN, P.-N.; STEINBACH, M.; KUMAR, V. \emph{Introduction to data mining}. [S.l.]: Pearson Education India, 2016.}
+
+\bibitem{haykin2009}
+\abntrefinfo{Haykin}{HAYKIN}{2009}
+{HAYKIN, S. \emph{Neural Networks and Learning Machines}. 3. ed. [S.l.]: Pearson Education, 2009.}
+
+\bibitem{goodfellow2016}
+\abntrefinfo{Goodfellow, Bengio e Courville}{GOODFELLOW; BENGIO; COURVILLE}{2016}
+{GOODFELLOW, I.; BENGIO, Y.; COURVILLE, A. \emph{Deep Learning}. [S.l.]: MIT Press, 2016.}
+
+\bibitem{rosenblatt1958}
+\abntrefinfo{Rosenblatt}{ROSENBLATT}{1958}
+{ROSENBLATT, F. The perceptron: A probabilistic model for information storage and organization in the brain.
+\emph{Psychological Review}, v.~65, n.~6, p. 386--408, 1958.}
+
+\bibitem{aggarwal2018}
+\abntrefinfo{Aggarwal}{AGGARWAL}{2018}
+{AGGARWAL, C.~C. \emph{Neural Networks and Deep Learning: A Textbook}. [S.l.]: Springer, 2018.}
+
+\bibitem{glorot2010}
+\abntrefinfo{Glorot e Bengio}{GLOROT; BENGIO}{2010}
+{GLOROT, X.; BENGIO, Y. Understanding the difficulty of training deep feedforward neural networks. In:  \emph{Proceedings of the 13th International Conference on Artificial Intelligence and Statistics}. [S.l.: s.n.], 2010. p. 249--256.}
+
+\bibitem{nwankpa2018}
+\abntrefinfo{Nwankpa et al.}{NWANKPA et al.}{2018}
+{NWANKPA, C. et al. Activation functions: Comparison of trends in practice and research for deep learning.
+\emph{arXiv preprint arXiv:1811.03378}, 2018.}
+
+\bibitem{lecun2012}
+\abntrefinfo{LeCun et al.}{LECUN et al.}{2012}
+{LECUN, Y. et al. Efficient backprop. In:  \emph{Neural Networks: Tricks of the Trade}. [S.l.]: Springer, 2012. p. 9--48.}
+
+\bibitem{rumelhart1986}
+\abntrefinfo{Rumelhart, Hinton e Williams}{RUMELHART; HINTON; WILLIAMS}{1986}
+{RUMELHART, D.~E.; HINTON, G.~E.; WILLIAMS, R.~J. Learning representations by back-propagating errors.
+\emph{Nature}, v.~323, p. 533--536, 1986.}
+
+\bibitem{lecun2015}
+\abntrefinfo{LeCun, Bengio e Hinton}{LECUN; BENGIO; HINTON}{2015}
+{LECUN, Y.; BENGIO, Y.; HINTON, G. Deep learning.
+\emph{Nature}, v.~521, n.~7553, p. 436--444, 2015.}
+
+\bibitem{bishop2006}
+\abntrefinfo{Bishop}{BISHOP}{2006}
+{BISHOP, C.~M. \emph{Pattern Recognition and Machine Learning}. [S.l.]: Springer, 2006.}
+
+\bibitem{li2021survey}
+\abntrefinfo{Li, Zhang e He}{LI; ZHANG; HE}{2021}
+{LI, Y.; ZHANG, L.; HE, K. A survey of convolutional neural networks: analysis, applications, and prospects.
+\emph{IEEE Transactions on Neural Networks and Learning Systems}, IEEE, v.~33, n.~10, p. 4943--4964, 2021.}
+
+\bibitem{nair2010rectified}
+\abntrefinfo{Nair e Hinton}{NAIR; HINTON}{2010}
+{NAIR, V.; HINTON, G.~E. Rectified linear units improve restricted boltzmann machines.
+p. 807--814, 2010.}
+
+\bibitem{scherer2010evaluation}
+\abntrefinfo{Scherer, M{\"u}ller e Behnke}{SCHERER; M{\"U}LLER; BEHNKE}{2010}
+{SCHERER, D.; M{\"U}LLER, A.; BEHNKE, S. Evaluation of pooling operations in convolutional architectures for object recognition. In:  SPRINGER. \emph{International Conference on Artificial Neural Networks}. [S.l.], 2010. p. 92--101.}
+
+\bibitem{tan2019efficientnet}
+\abntrefinfo{Tan e Le}{TAN; LE}{2019}
+{TAN, M.; LE, Q. Efficientnet: Rethinking model scaling for convolutional neural networks. In:  PMLR. \emph{International conference on machine learning}. [S.l.], 2019. p. 6105--6114.}
+
+\bibitem{goodfellow2014generative}
+\abntrefinfo{Goodfellow et al.}{GOODFELLOW et al.}{2014}
+{GOODFELLOW, I. et al. Generative adversarial nets. In:  \emph{Advances in neural information processing systems}. [S.l.: s.n.], 2014. v.~27, p. 2672--2680.}
+
+\bibitem{creswell2018generative}
+\abntrefinfo{Creswell et al.}{CRESWELL et al.}{2018}
+{CRESWELL, A. et al. Generative adversarial networks: An overview.
+\emph{IEEE Signal Processing Magazine}, IEEE, v.~35, n.~1, p. 53--65, 2018.}
+
+\bibitem{goodfellow2016nips}
+\abntrefinfo{Goodfellow}{GOODFELLOW}{2016}
+{GOODFELLOW, I. Nips 2016 tutorial: Generative adversarial networks.
+\emph{arXiv preprint arXiv:1701.00160}, 2016.}
+
+\bibitem{radford2015unsupervised}
+\abntrefinfo{Radford, Metz e Chintala}{RADFORD; METZ; CHINTALA}{2015}
+{RADFORD, A.; METZ, L.; CHINTALA, S. Unsupervised representation learning with deep convolutional generative adversarial networks.
+\emph{arXiv preprint arXiv:1511.06434}, 2015.}
+
+\bibitem{karras2019style}
+\abntrefinfo{Karras, Laine e Aila}{KARRAS; LAINE; AILA}{2019}
+{KARRAS, T.; LAINE, S.; AILA, T. A style-based generator architecture for generative adversarial networks. In:  \emph{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}. [S.l.: s.n.], 2019. p. 4401--4410.}
+
+\bibitem{ledig2017photo}
+\abntrefinfo{Ledig et al.}{LEDIG et al.}{2017}
+{LEDIG, C. et al. Photo-realistic single image super-resolution using a generative adversarial network. In:  \emph{Proceedings of the IEEE conference on computer vision and pattern recognition}. [S.l.: s.n.], 2017. p. 4681--4690.}
+
+\bibitem{zhu2017unpaired}
+\abntrefinfo{Zhu et al.}{ZHU et al.}{2017}
+{ZHU, J.-Y. et al. Unpaired image-to-image translation using cycle-consistent adversarial networks. In:  \emph{Proceedings of the IEEE international conference on computer vision}. [S.l.: s.n.], 2017. p. 2223--2232.}
+
+\bibitem{elgammal2017can}
+\abntrefinfo{Elgammal et al.}{ELGAMMAL et al.}{2017}
+{ELGAMMAL, A. et al. Can: Creative adversarial networks, generating art by learning about styles and deviating from style norms. In:  \emph{ICCC}. [S.l.: s.n.], 2017. p. 96--103.}
+
+\bibitem{frid2018synthetic}
+\abntrefinfo{Frid-Adar et al.}{FRID-ADAR et al.}{2018}
+{FRID-ADAR, M. et al. Synthetic data augmentation using gan for improved liver lesion classification. In:  IEEE. \emph{2018 IEEE 15th International Symposium on Biomedical Imaging (ISBI 2018)}. [S.l.], 2018. p. 289--293.}
+
+\bibitem{arjovsky2017towards}
+\abntrefinfo{Arjovsky e Bottou}{ARJOVSKY; BOTTOU}{2017}
+{ARJOVSKY, M.; BOTTOU, L. Towards principled methods for training generative adversarial networks. In:  \emph{International Conference on Learning Representations (ICLR)}. [S.l.: s.n.], 2017.}
+
+\bibitem{salimans2016improved}
+\abntrefinfo{Salimans et al.}{SALIMANS et al.}{2016}
+{SALIMANS, T. et al. Improved techniques for training gans. In:  \emph{Advances in neural information processing systems}. [S.l.: s.n.], 2016. p. 2234--2242.}
+
+\bibitem{gulrajani2017improved}
+\abntrefinfo{Gulrajani et al.}{GULRAJANI et al.}{2017}
+{GULRAJANI, I. et al. Improved training of wasserstein gans.
+\emph{Advances in neural information processing systems}, v.~30, 2017.}
+
+\bibitem{arjovsky2017wasserstein}
+\abntrefinfo{Arjovsky, Chintala e Bottou}{ARJOVSKY; CHINTALA; BOTTOU}{2017}
+{ARJOVSKY, M.; CHINTALA, S.; BOTTOU, L. Wasserstein generative adversarial networks. In:  PMLR. \emph{International conference on machine learning}. [S.l.], 2017. p. 214--223.}
+
+\bibitem{mirza2014conditional}
+\abntrefinfo{Mirza}{MIRZA}{2014}
+{MIRZA, M. Conditional generative adversarial nets.
+\emph{arXiv preprint arXiv:1411.1784}, 2014.}
+
+\bibitem{karras2020training}
+\abntrefinfo{Karras et al.}{KARRAS et al.}{2020}
+{KARRAS, T. et al. Training generative adversarial networks with limited data.
+\emph{Advances in neural information processing systems}, v.~33, p. 12104--12114, 2020.}
+
+\bibitem{hore2010image}
+\abntrefinfo{Hore e Ziou}{HORE; ZIOU}{2010}
+{HORE, A.; ZIOU, D. Image quality metrics: Psnr vs. ssim.
+\emph{2010 20th International Conference on Pattern Recognition}, p. 2366--2369, 2010.}
+
+\bibitem{wang2004image}
+\abntrefinfo{Wang et al.}{WANG et al.}{2004}
+{WANG, Z. et al. Image quality assessment: from error visibility to structural similarity.
+\emph{IEEE transactions on image processing}, IEEE, v.~13, n.~4, p. 600--612, 2004.}
+
+\bibitem{zhang2018unreasonable}
+\abntrefinfo{Zhang et al.}{ZHANG et al.}{2018}
+{ZHANG, R. et al. The unreasonable effectiveness of deep features as a perceptual metric. In:  \emph{Proceedings of the IEEE conference on computer vision and pattern recognition}. [S.l.: s.n.], 2018. p. 586--595.}
+
+\bibitem{desai2020breast}
+\abntrefinfo{Desai et al.}{DESAI et al.}{2020}
+{DESAI, S.~D. et al. Breast cancer detection using gan for limited labeled dataset. In:  IEEE. \emph{2020 12th International Conference on Computational Intelligence and Communication Networks (CICN)}. [S.l.], 2020. p. 34--39.}
+
+\bibitem{joseph2024prior}
+\abntrefinfo{Joseph et al.}{JOSEPH et al.}{2024}
+{JOSEPH, A.~J. et al. Prior-guided generative adversarial network for mammogram synthesis.
+\emph{Biomedical Signal Processing and Control}, Elsevier, v.~87, p. 105456, 2024.}
+
+\bibitem{guan2019breast}
+\abntrefinfo{Guan e Loew}{GUAN; LOEW}{2019}
+{GUAN, S.; LOEW, M. Breast cancer detection using synthetic mammograms from generative adversarial networks in convolutional neural networks.
+\emph{Journal of Medical Imaging}, Society of Photo-Optical Instrumentation Engineers, v.~6, n.~3, p. 031411--031411, 2019.}
+
+\bibitem{shah2024reliable}
+\abntrefinfo{Shah, Khan e Abrar}{SHAH; KHAN; ABRAR}{2024}
+{SHAH, D.; KHAN, M.~A. U.; ABRAR, M. Reliable breast cancer diagnosis with deep learning: Dcgan-driven mammogram synthesis and validity assessment.
+\emph{Applied Computational Intelligence and Soft Computing}, Wiley Online Library, v.~2024, n.~1, p. 1122109, 2024.}
+
+\bibitem{jimenez2024gan}
+\abntrefinfo{Jim{\'e}nez-Gaona et al.}{JIM{\'E}NEZ-GAONA et al.}{2024}
+{JIM{\'E}NEZ-GAONA, Y. et al. Gan-based data augmentation to improve breast ultrasound and mammography mass classification.
+\emph{Biomedical Signal Processing and Control}, Elsevier, v.~94, p. 106255, 2024.}
+
+\bibitem{wu2018conditional}
+\abntrefinfo{Wu et al.}{WU et al.}{2018}
+{WU, E. et al. Conditional infilling gans for data augmentation in mammogram classification. In:  SPRINGER. \emph{Image Analysis for Moving Organ, Breast, and Thoracic Images: Third International Workshop, RAMBO 2018, Fourth International Workshop, BIA 2018, and First International Workshop, TIA 2018, Held in Conjunction with MICCAI 2018, Granada, Spain, September 16 and 20, 2018, Proceedings 3}. [S.l.], 2018. p. 98--106.}
+
+\bibitem{shen2021mass}
+\abntrefinfo{Shen et al.}{SHEN et al.}{2021}
+{SHEN, T. et al. Mass image synthesis in mammogram with contextual information based on gans.
+\emph{Computer Methods and Programs in Biomedicine}, Elsevier, v.~202, p. 106019, 2021.}
+
+\bibitem{cbis_ddsm_kaggle}
+\abntrefinfo{Awsaf49}{AWSAF49}{2021}
+{AWSAF49. \emph{CBIS-DDSM - Breast Cancer Image Dataset}. 2021. \url{https://www.kaggle.com/datasets/awsaf49/cbis-ddsm-breast-cancer-image-dataset/data}.
+Accessed: 2025-11-03.}
+
+\bibitem{pawar2024esm}
+\abntrefinfo{Pawar et al.}{PAWAR et al.}{2024}
+{PAWAR, N.~M. et al. Esm data downscaling: a comparison of super-resolution deep learning models.
+\emph{Earth Science Informatics}, Springer, v.~17, n.~4, p. 3511--3528, 2024.}
+
+\end{thebibliography}

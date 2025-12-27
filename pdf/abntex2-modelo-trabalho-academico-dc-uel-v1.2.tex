@@ -1,0 +1,762 @@
+%% Customizations over the file abtex2-modelo-trabalho-academico.tex, v-1.7.1
+%% to employ the style dc-uel.cls that defines the template for documents
+%% of the Departamento de Computação of the Universidade Estadual de Londrina.
+%%
+%% Informações sobre o arquivo original:
+%% abtex2-modelo-trabalho-academico.tex, v-1.7.1 laurocesar
+%% Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Daniel dos Santos Kaster, 
+%% dskaster@uel.br
+%%
+%% This work requires the original files
+%% abntex2-modelo-include-comandos, abntex2-modelo-references.bib
+%% and abntex2-modelo-img-grafico.pdf
+%%
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Trabalho Academico (tese de doutorado, dissertacao de
+% mestrado e trabalhos monograficos em geral) em conformidade com 
+% ABNT NBR 14724:2011: Informacao e documentacao - Trabalhos academicos -
+% Apresentacao
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% twoside para impressão em verso e anverso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe dc-uel --
+	tcc,			% tipo do trabalho (opções: tcc, tccpreliminar, dissertacao, qualificacaoms)
+					% - tcc (Versão para a Banca do TCC ou Versão Final do TCC)
+					% - tccpreliminar (Versão Preliminar do TCC)
+					% - dissertação (Versão para a Banca da Dissertação ou Versão Final/Revisada da Dissertação)
+					% - qualificacaoms (Qualificação de Mestrado)
+	]{ABNT-DC-UEL}
+
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{pdfpages}			% Inclusão de (páginas de) arquivos PDF no documento
+\usepackage{amsmath, amssymb}
+\usepackage{float}
+\usepackage{subcaption}
+% ---
+		
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Informações de dados para CAPA, FOLHA DE ROSTO e outros elementos
+% ---
+\titulo{Uso de modelos generativos para criação de dataset sintético no contexto do câncer de mama}
+\tituloingles{Use of generative models for synthetic dataset creation in the context of breast cancer}
+\palavraschave{Câncer de mama. Redes generativas adversárias. Aprendizado profundo. Aumento de dados. Redes Neurais Convolucionais.}
+\palavraschaveingles{Breast cancer. Generative adversarial networks. Deep learning. Data augmentation. Convolutional neural networks.}
+\autor{Rafael Palheta Tokairin}
+\citacaoautor{TOKAIRIN, R. P.}
+\data{2025}
+
+\diadefesa{24 de novembro}
+\orientador{Prof. Dra. Helen C. de Mattos Senefonte} % É membro nato e presidente da Banca Examinadora
+\coorientador{Prof. Dra. Neyva Maria Lopes Romeiro} % Pode ou não ser membro da Banca; se for, deve ser incluído como membro a seguir
+\membrobancadois{Prof. Dra. Neyva Maria Lopes Romeiro}
+\instmembrobancadois{Universidade Estadual de Londrina}
+\membrobancatres{Prof. Dr. Bruno Squizato Faiçal}
+\instmembrobancatres{Universidade Estadual de Londrina}
+\membrobancaquatro{}
+\instmembrobancaquatro{}
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa (elemento obrigatório)
+% ---
+\imprimircapa
+% ---
+
+% ---
+% Folha de rosto (elemento obrigatório)
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+
+% ---
+% Ficha bibliografica (elemento obrigatório para versões finais de TCC e dissertação)
+% ---
+
+% Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
+% catalogação-na-publicação''. Você poderá utilizar o site da biblioteca para 
+% gerar esta ficha através do link: http://www.uel.br/bc/ficha/. Quando estiver
+% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
+% o conteúdo de implementação deste arquivo pelo comando abaixo:
+%
+\begin{fichacatalografica}
+    \includepdf{ficha_catalografica.pdf}
+\end{fichacatalografica}
+
+
+% ---
+
+% ---
+% Folha de aprovação (elemento obrigatório) ==> deve ser omitida no caso de tccpreliminar
+% ---
+
+% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
+% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
+% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
+% imagem da página assinada pela banca com o comando abaixo:
+%
+% \includepdf{folhadeaprovacao_final.pdf}
+\imprimirfolhadeaprovacao
+% ---
+
+% ---
+% Dedicatória (elemento opcional)
+% ---
+\begin{dedicatoria}
+  \vspace*{\fill}
+  \hspace{.4\textwidth}
+  \begin{minipage}{.5\textwidth}
+    \begin{flushright}
+      \textit{Este trabalho é dedicado às crianças adultas que, quando pequenas, sonharam em se tornar cientistas.}
+    \end{flushright}  
+  \end{minipage}
+\end{dedicatoria}
+% ---
+
+% ---
+% Agradecimentos (elemento opcional, mas fortemente recomendado)
+% ---
+\begin{agradecimentos}
+
+Agradeço a Deus pela minha vida, por toda a minha trajetória até aqui e por todas as pessoas que me ajudaram nesse caminho.
+
+Aos meus pais, expresso minha profunda gratidão por terem dedicado suas vidas à minha educação e por todo apoio que sempre me ofereceram. Agradeço também aos meus avôs e à minha avó, que sempre cuidaram de mim e me inspiram a ser uma pessoa melhor a cada dia. À minha irmã, sou grato pelo incentivo constante e por confiar em mim ao longo dessa jornada.
+
+À minha orientadora, Prof. Dra. Helen C. de Mattos Senefonte, agradeço sinceramente pela paciência, dedicação e auxílio na realização deste trabalho. À minha coorientadora, Prof. Dra. Neyva Maria Lopes Romeiro, agradeço não apenas pelas orientações durante o Trabalho de Conclusão de Curso, mas também pelo apoio no projeto de iniciação científica. Sou eternamente grato pelo conhecimento transmitido, pelos aprendizados proporcionados e por ter acreditado em mim nos momentos em que mais precisei.
+
+Agradeço ainda aos colegas de curso, que estiveram ao meu lado nos momentos de alegria e dificuldade, pela amizade e pelas trocas de conhecimento que somente a vivência universitária pode proporcionar. Por fim, agradeço ao corpo docente pelo conhecimento transmitido, que contribuiu significativamente para minha formação acadêmica.
+
+\end{agradecimentos}
+% ---
+
+% ---
+% Epígrafe (elemento opcional)
+% ---
+\begin{epigrafe}
+  \vspace*{\fill}
+  \hspace{.4\textwidth}
+  \begin{minipage}{.5\textwidth}   
+    \begin{flushright}
+	\textit{
+    ``E Deus disse: `Haja luz!' E houve luz.\\
+    (Bíblia Sagrada, Gênesis 1,3)}
+    \end{flushright}
+  \end{minipage}
+\end{epigrafe}
+% ---
+
+% ---
+% RESUMOS
+% ---
+
+% ---
+% Resumo em Português (elemento obrigatório)
+% ---
+\begin{resumo}
+ Esta pesquisa tem como objetivo contribuir com os médicos no diagnóstico do câncer de mama por meio da aplicação de dados sintéticos e técnicas de aprendizado de máquina. Com o avanço das abordagens de aprendizado de máquina, especialmente redes neurais convolucionais, busca-se explorar o potencial das tecnologias na identificação de características em imagens de mamografias que não são detectáveis visualmente. Diante da escassez de dados rotulados e de alta qualidade, foi desenvolvido um conjunto de dados sintéticos utilizando o modelo generativo \textit{StyleGAN2-ADA condicional}, com filtragem baseada na métrica \textit{Learned Perceptual Image Patch Similarity} para garantir alta similaridade perceptual em relação aos dados reais. O conjunto final de dados reais, composto por imagens balanceadas entre benignas e malignas, foi avaliado utilizando a rede \textit{EfficientNet-B0} em validação cruzada estratificada de cinco dobras. Diferentes proporções de imagens sintéticas foram incorporadas ao treino (1:1, 2:1, 3:1 e 4:1), mantendo a avaliação restrita a imagens reais. A inclusão de dados sintéticos mostrou melhoria consistente nas métricas de desempenho, alcançando acurácia média de 0.651, F1-\textit{score} de 0.658 e AUC de 0.703 na proporção 2:1, em comparação com 0.606, 0.573 e 0.665 obtidos apenas com dados reais. Estes resultados indicam que imagens sintéticas de alta qualidade podem ampliar conjuntos de dados médicos limitados, promovendo classificadores mais robustos e com melhor capacidade de generalização, contribuindo para avanços no diagnóstico do câncer de mama.
+\end{resumo}
+% ---
+
+% ---
+% Resumo em Inglês (elemento obrigatório)
+% ---
+% O ambiente Abstract (com A maiúsculo) é definido no estilo dc-uel
+\begin{Abstract}
+ This research aims to support physicians in the diagnosis of breast cancer through the application of synthetic data and machine learning techniques. With the advancement of machine learning approaches, especially convolutional neural networks, the goal is to explore the potential of these technologies in identifying features in mammography images that are not visually detectable. Given the scarcity of labeled and high-quality data, a synthetic dataset was developed using the conditional StyleGAN2-ADA generative model, with filtering based on the Learned Perceptual Image Patch Similarity metric to ensure high perceptual similarity to real data. The final real dataset, composed of images balanced between benign and malignant cases, was evaluated using the EfficientNet-B0 network in five-fold stratified cross-validation. Different proportions of synthetic images were incorporated into training (1:1, 2:1, 3:1, and 4:1), while evaluation remained restricted to real images. The inclusion of synthetic data consistently improved performance metrics, achieving an average accuracy of 0.651, F1-score of 0.658, and AUC of 0.703 in the 2:1 proportion, compared to 0.606, 0.573, and 0.665 obtained using only real data. These results indicate that high-quality synthetic images can expand limited medical datasets, enabling more robust classifiers with better generalization capabilities, ultimately contributing to advancements in breast cancer diagnosis.
+\end{Abstract}
+% ---
+
+% ---
+% Lista de ilustrações (elemento opcional, mas fortemente recomendado)
+% ---
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+% ---
+
+% ---
+% Lista de tabelas (elemento opcional, mas fortemente recomendado)
+% ---
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+% ---
+
+% ---
+% Lista de abreviaturas e siglas (elemento opcional)
+% ---
+\begin{siglas}
+  \item[ML] Machine Learning (Aprendizado de Máquina)
+  \item[DL] Deep Learning (Aprendizado Profundo)
+  \item[CNN] Convolutional Neural Network (Rede Neural Convolucional)
+  \item[SIFT] Scale-Invariant Feature Transform (Transformada de Características Invariantes à Escala)
+  \item[SURF] Speeded-Up Robust Features (Características Robustas Aceleradas)
+  \item[CAD] Computer-Aided Diagnosis (Diagnóstico Auxiliado por Computador)
+  \item[ReLU] Rectified Linear Unit (Unidade Linear Retificada)
+  \item[MLP] Multilayer Perceptron (Perceptron Multicamadas)
+  \item[GAN] Generative Adversarial Network (Rede Generativa Adversária)
+  \item[DCGAN] Deep Convolutional GAN (Rede Generativa Adversária Convolucional Profunda)
+  \item[WGAN-GP] Wasserstein GAN with Gradient Penalty (GAN de Wasserstein com Penalidade de Gradiente)
+  \item[cGAN] Conditional GAN (GAN Condicional)
+  \item[PSNR] Peak Signal-to-Noise Ratio (Relação Pico Sinal-Ruído)
+  \item[SSIM] Structural Similarity Index Measure (Índice de Similaridade Estrutural)
+  \item[MSE] Mean Squared Error (Erro Quadrático Médio)
+  \item[LPIPS] Learned Perceptual Image Patch Similarity (Similaridade Perceptual Aprendida de Pedaços de Imagem)
+  \item[DDSM] Digital Database for Screening Mammography (Base de Dados Digital para Rastreio Mamográfico)
+  \item[MIAS] Mammographic Image Analysis Society (Sociedade de Análise de Imagens Mamográficas)
+  \item[FID] Fréchet Inception Distance (Distância de Fréchet na Inception)
+  \item[U-Net] U-Net Convolutional Network (Rede Convolucional em U)
+  \item[BUSI] Breast Ultrasound Images Dataset (Conjunto de Dados de Imagens de Ultrassom Mamário)
+  \item[CRN] Contextual Residual Network (Rede Residual Contextual)
+  \item[PatchGAN] Patch-based GAN Discriminator (Discriminador GAN baseado em Pedaços)
+  \item[CycleGAN] Cycle-Consistent Generative Adversarial Network (Rede GAN com Consistência Cíclica)
+  \item[SNGAN] Spectral Normalization GAN (GAN com Normalização Espectral)
+  \item[ciGAN] Context-aware Image GAN (GAN de Imagens com Consciência de Contexto)
+\end{siglas}
+
+% ---
+
+% ---
+% Lista de símbolos (elemento opcional)
+% ---
+% \begin{simbolos}
+%   \item[$ \Gamma $] Letra grega Gama
+%   \item[$ \Lambda $] Lambda
+%   \item[$ \zeta $] Letra grega minúscula zeta
+%   \item[$ \in $] Pertence
+% \end{simbolos}
+% ---
+
+% ---
+% Sumario (elemento obrigatório)
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+\pagestyle{dc-uel-header} % Configura cabeçalho para apresentar apenas números de página
+
+
+% ----------------------------------------------------------
+% Introdução
+% ----------------------------------------------------------
+\chapter{Introdução}
+
+O processamento de imagens médicas tem se destacado como uma abordagem promissora no diagnóstico precoce de lesões e no desenvolvimento de ferramentas de apoio à decisão clínica, especialmente em doenças de alta incidência como o câncer. O câncer é caracterizado por alterações na estrutura genética das células, que resultam em proliferação celular descontrolada e formação de tumores \cite{feng2018breast}. Dentre os diversos tipos, o câncer de mama é o mais comum entre as mulheres ao longo da vida \cite{precoce2004controle}. A mamografia é o exame mais utilizado e confiável para a detecção precoce de alterações nas mamas, permitindo a identificação de anomalias antes mesmo que possam ser percebidas por meio de exame clínico \cite{azevedo2016importancia}. Entretanto, a interpretação manual dessas imagens depende de profissionais experientes e está sujeita à variabilidade entre avaliadores, além de ser um processo repetitivo que pode levar a erros decorrentes de cansaço. Esses fatores tornam a análise mais lenta e menos padronizada, reforçando a necessidade de métodos automatizados capazes de agilizar o processo e aumentar a precisão dos diagnósticos. Estudos demonstram que a avaliação de imagens médicas pode variar significativamente entre especialistas devido a fatores subjetivos e ao estado físico e psicológico do observador \cite{obuchowicz2020interobserver}.
+
+Diante desse desafio, o aprendizado de máquina (\textit{machine learning} – ML) oferece um potencial para a identificação de padrões complexos em imagens, sendo capaz de detectar características sutis que muitas vezes escapam à percepção humana \cite{erickson2017machine}. Em particular, o aprendizado profundo (\textit{deep learning} - DL), uma subárea do ML, tem se destacado em tarefas de reconhecimento de imagens, devido à sua capacidade de aprender representações hierárquicas dos dados a partir de grandes volumes de informação \cite{lecun2015deep}. Entre as arquiteturas mais eficazes, destacam-se as redes neurais convolucionais (\textit{convolutional neural networks} - CNN), especialmente desenvolvidas para o processamento de dados em formato de grade, como imagens \cite{mendel2019transfer}.
+
+Contudo, o treinamento eficaz de redes neurais profundas exige grandes bases de dados rotulados e de alta qualidade, que representa um desafio em contextos médicos, onde o acesso a imagens é restrito, os dados nem sempre são padronizados ou rotulados adequadamente. Para superar essa limitação, este trabalho de conclusão de curso propõe a geração de um \textit{dataset} sintético por meio de modelos generativos, com o objetivo de enriquecer o processo de treinamento das CNNs e aprimorar o desempenho na detecção de lesões mamárias.
+
+Assim, este trabalho busca integrar técnicas de geração de dados sintéticos com algoritmos de ML aplicados à análise de imagens de mamografias, comparando os métodos disponíveis para selecionar o de maior eficácia diagnóstica. A Seção 2 apresenta a fundamentação teórica sobre os conceitos utilizados, abordando temas como visão computacional, aprendizado de máquina, redes neurais convolucionais, inteligência artificial generativa e métricas de avaliação de qualidade de imagem, além de trabalhos correlatos. A Seção 3 descreve o desenvolvimento do estudo, detalhando o ambiente computacional, os conjuntos de dados empregados, os processos de geração e seleção de imagens sintéticas, bem como o modelo de classificação utilizado. A Seção 4 apresenta e discute os resultados obtidos a partir dos experimentos de geração e classificação de mamografias. Por fim, a Seção 5 traz as conclusões do trabalho, destacando as contribuições, limitações e possíveis direções para pesquisas futuras.
+% PARTE
+% ----------------------------------------------------------
+% A organização dos capítulos em partes só é recomendada caso o texto seja muito extenso
+% Não é comum dividir o trabalho em partes em TCCs e dissertações de mestrado
+
+%\part{Preparação da pesquisa}
+
+% ----------------------------------------------------------
+% Capitulo com exemplos de comandos inseridos de arquivo externo 
+% ----------------------------------------------------------
+
+\include{abntex2-modelo-include-comandos}
+
+% ---
+% Capitulos de exemplo
+% ---
+\chapter{Desenvolvimento}
+
+Este capítulo descreve as etapas envolvidas no desenvolvimento do trabalho, abrangendo desde a configuração do ambiente computacional até o treinamento e avaliação dos modelos propostos. Inicialmente, são apresentadas as especificações do ambiente de execução utilizado nos experimentos, incluindo hardware e software. Em seguida, descreve-se o conjunto de dados adotado e os procedimentos realizados para sua preparação.
+
+Na sequência, detalha-se o processo de geração de imagens sintéticas, contemplando a arquitetura do modelo generativo, as etapas de pré-processamento, os parâmetros de treinamento e o uso da métrica LPIPS para avaliação da qualidade perceptual das imagens geradas.
+
+Por fim, são apresentados os métodos aplicados ao modelo de classificação, incluindo a definição da arquitetura, a integração de imagens reais e sintéticas, o pré-processamento dos dados e o treinamento do modelo. As métricas utilizadas para a avaliação de desempenho completam a seção, permitindo analisar o impacto do uso de imagens sintéticas na tarefa de classificação.
+
+\section{Ambiente Computacional}
+
+Os experimentos realizados neste trabalho foram conduzidos em uma máquina de uso pessoal equipada com \textit{hardware} de desempenho intermediário, configurada para suportar as demandas de treinamento de modelos de aprendizado profundo. O sistema foi composto por uma GPU NVIDIA RTX 4060 com 8 GB de memória dedicada, um processador Intel Core i5-12400F de 6 núcleos e 12 \textit{threads}, além de 16 GB de memória RAM 6000Mhz. O ambiente de desenvolvimento foi configurado em sistema operacional Debian Linux, com suporte às bibliotecas CUDA e cuDNN para aceleração de operações matriciais em GPU.
+
+O treinamento dos modelos foi realizado utilizando a linguagem \textit{Python}, em conjunto com o \textit{framework} PyTorch\footnote{\url{https://pytorch.org/}}, amplamente empregado em aplicações de visão computacional, mantendo tempos de processamento adequados e sem comprometimento significativo de desempenho.
+
+\section{Conjunto de dados}
+
+O conjunto de dados utilizado neste trabalho foi obtido a partir do Kaggle \cite{cbis_ddsm_kaggle}, contendo imagens de mamografias provenientes do \textit{Mammographic Image Analysis Society} (MIAS) \textit{Database}, uma base amplamente utilizada para pesquisa em detecção e classificação de lesões mamárias. As imagens se encontram acompanhadas de informações estruturadas em um arquivo CSV, contendo as colunas \textit{patient\_id}, \textit{breast\_density}, \textit{left or right breast}, \textit{image view}, \textit{abnormality id}, \textit{abnormality type}, \textit{mass shape}, \textit{mass margins}, \textit{assessment}, \textit{pathology}, \textit{subtlety}, \textit{image file path}, \textit{cropped image file path} e \textit{ROI mask file path}. O \textit{dataset} original possui um total de 1.898 imagens no formato JPEG, distribuídas entre imagens da mama completa (a), imagens recortadas contendo a lesão (b) e máscaras de regiões de interesse (c), mostrada na Figura \ref{banco_dados}.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.28\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/completa.jpg}
+        \caption{Mama completa}
+        \label{completa}
+    \end{subfigure}
+    \hspace{0.5cm}
+    \begin{subfigure}[b]{0.28\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/cropped.jpg}
+        \caption{Recorte da lesão}
+        \label{cropped}
+    \end{subfigure}
+    \hspace{0.5cm}
+        \begin{subfigure}[b]{0.28\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/roi.jpg}
+        \caption{Região de interesse}
+        \label{roi}
+    \end{subfigure}
+
+    \caption{Imagens do conjunto de dados antes da filtragem.}
+    \label{banco_dados}
+\end{figure}
+
+Para a utilização nesta pesquisa, foi necessário realizar um processo de filtragem e organização do conjunto de dados, de forma a selecionar apenas as imagens da mama completa ao treinamento do modelo gerador. Considerando que o objetivo da rede generativa adversarial (GAN) é aprender padrões visuais globais das mamografias, optou-se pelo uso exclusivo das imagens de mama completa, descartando as versões recortadas e as máscaras de ROI. Após essa seleção, o conjunto final resultou em 553 imagens, sendo 245 classificadas como malignas e 308 como benignas. 
+
+Em seguida, o arquivo CSV original foi ajustado, mantendo apenas as colunas essenciais para o treinamento: \textit{pathology} e \textit{image file path}, correspondentes à classe da amostra e ao caminho da respectiva imagem. As amostras rotuladas como “benigno sem necessidade de retorno” foram reclassificadas como “benigno”, com o objetivo de simplificar a categorização e evitar subdivisões desnecessárias. Essa padronização possibilitou uma distinção clara entre as duas principais classes do estudo: benigno e maligno.
+
+Por fim, todas as imagens foram orientadas na mesma direção, independentemente de representarem a mama esquerda ou direita. Essa normalização foi feita para evitar que o modelo aprendesse padrões relacionados apenas à posição anatômica, concentrando-se nas características visuais e estruturais das lesões. Dessa forma, o conjunto de dados foi devidamente preparado para as etapas subsequentes de pré-processamento, treinamento e avaliação do modelo de geração, garantindo coerência, qualidade e integridade das informações utilizadas.
+
+Algumas limitações foram identificadas referentes ao conjunto de dados. Primeiramente, o número total de imagens é relativamente pequeno para a aplicação de modelos de classificação, o que aumenta o risco de sobreajuste (\textit{overfitting}). Além disso, apesar do equilíbrio relativo entre classes benignas e malignas, o conjunto ainda é limitado em termos de diversidade de casos. Estratégias de aumento da variabilidade, como técnicas de \textit{data augmentation} e geração sintética de imagens, foram adotadas e serão detalhadas nas próximas seções.
+
+\section{Geração de imagens sintéticas}
+    
+\subsection{Arquitetura do modelo de geração}
+
+O desenvolvimento do modelo generativo deste trabalho envolveu a avaliação de diferentes arquiteturas de \textit{Generative Adversarial Networks} (GANs) condicionais, incluindo DCGAN condicional e WGAN-GP condicional. Ambos os modelos foram inicialmente testados como base para a geração de mamografias sintéticas, permitindo observar a capacidade de aprendizado de padrões visuais das classes benignas e malignas. Embora tenham apresentado resultados coerentes em termos de estrutura geral das imagens, ambos demonstraram limitações na fidelidade visual e na preservação de detalhes anatômicos sutis, evidenciando a necessidade de uma arquitetura mais avançada.
+
+Foi desenvolvida uma arquitetura híbrida que combinou elementos da DCGAN condicional e da WGAN-GP condicional, com o objetivo de unir a capacidade de representação convolucional profunda da primeira à estabilidade de treinamento e robustez da segunda. Essa fusão resultou na \textit{Conditional Wasserstein Deep Convolutional GAN with Gradient Penalty} (cWGAN-GP), uma abordagem que emprega convoluções transpostas no gerador e convoluções diretas no discriminador, associadas à função de perda de Wasserstein com penalização de gradiente, que reduz oscilações durante o aprendizado adversarial, representada pela Figura \ref{cwgan}. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{Figures/cwgan.jpg}
+    \caption{Arquitetura da cWGAN-GP}
+    \label{cwgan}
+\end{figure}
+
+O modelo recebe como entrada um vetor de ruído concatenado a um vetor de rótulo \textit{one-hot}, permitindo controlar a classe de saída (benigno ou maligno). A implementação possibilitou gerar amostras com estrutura anatômica coerente e melhor estabilidade de convergência, embora ainda apresentasse ruídos texturais e imprecisões sutis nas bordas das imagens, como mostra a Figura \ref{mamwgan}, indicando a necessidade de arquiteturas mais avançadas.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Figures/mamografiaswgan.png}
+    \caption{Mamografias sintéticas geradas pela cWGAN-GP}
+    \label{mamwgan}
+\end{figure}
+
+Os resultados apresentados na Figura \ref{resultados_lpips_wgan} mostram que a arquitetura cWGAN-GP obteve média de 0.352 e mediana de 0.347 nos valores de LPIPS, indicando uma similaridade perceptual moderada entre as imagens geradas e as reais. Apesar de demonstrar estabilidade na geração, esses valores refletem uma limitação do modelo em capturar com precisão as variações de textura e contraste características das mamografias. 
+
+\begin{figure}[H]
+    \centering
+    % Subfigura (a)
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/wgan_distrib.png}
+        \caption{Distribuição LPIPS para todas as imagens}
+        \label{distr_lpips_wgan}
+    \end{subfigure}
+    \hfill
+    % Subfigura (b)
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/wgan_class.png}
+        \caption{Distribuição LPIPS para cada classe de imagem}
+        \label{distr_class_lpips_wgan}
+    \end{subfigure}
+    % Subfigura (c)
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/wgan_dens.png}
+        \caption{Densidade LPIPS}
+        \label{dens_lpips_wgan}
+    \end{subfigure}
+    \hfill
+    % Subfigura (d)
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/wgan_boxplot.png}
+        \caption{Box plot LPIPS}
+        \label{box_lpips_wgan}
+    \end{subfigure}
+
+    \caption{Gráficos dos valores do LPIPS na geração de 1000 imagens para cada classe usando WGAN-GP. Em laranja estão representadas as classes malignas e em azul as benignas.}
+    \label{resultados_lpips_wgan}
+\end{figure}
+
+
+Considerando essas limitações e o objetivo de aprimorar a qualidade perceptual das imagens, optou-se pela adoção do \textit{StyleGAN2-ADA} condicional. Essa escolha foi motivada pela capacidade do \textit{StyleGAN2-ADA} de representar detalhes morfológicos complexos com maior realismo, aliando a abordagem \textit{style-based} à técnica de \textit{Adaptive Discriminator Augmentation} (ADA), o que possibilita um treinamento estável mesmo com conjuntos de dados limitados. Assim, a nova arquitetura busca superar as restrições observadas no cWGAN-GP, produzindo imagens de mamografia com maior fidelidade perceptual e melhor separabilidade entre as classes.
+
+O gerador condicional do \textit{StyleGAN2-ADA}, ilustrado na Figura~\ref{gerador}, recebe um vetor latente combinado à condição da classe e o transforma progressivamente em uma imagem sintetizada por meio de blocos de convolução baseados em \textit{style modulation}. Essa abordagem permite controlar características de alto e baixo nível durante o processo de geração, conferindo maior precisão na representação de estruturas morfológicas presentes em mamografias.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\linewidth]{Figures/generator.jpg}
+    \caption{Arquitetura do gerador}
+    \label{gerador}
+\end{figure}
+
+O discriminador condicional, por sua vez, recebe a imagem gerada concatenada à condição da classe e aplica uma sequência de blocos convolucionais com ativação Leaky ReLU, integrando os princípios de R1 regularization e ADA para melhorar a estabilidade e evitar sobreajuste (\textit{overfitting}), Figura \ref{discriminador}. Durante o treinamento, a arquitetura permite que o gerador aprenda características detalhadas das mamografias, enquanto o discriminador fornece \textit{feedback} contínuo sobre realismo e consistência com a classe fornecida.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{Figures/discriminator.jpg}
+    \caption{Arquitetura do discriminador}
+    \label{discriminador}
+\end{figure}
+
+O modelo StyleGAN2-ADA condicional demonstrou superioridade em comparação às arquiteturas previamente testadas, produzindo imagens sintéticas de alta qualidade, com melhor preservação de texturas e estruturas anatômicas críticas. A concatenação das informações de classe ao vetor latente possibilitou um controle mais preciso sobre o conteúdo gerado, garantindo que o modelo reproduzisse características específicas de mamografias benignas e malignas. Essa abordagem consolidou o StyleGAN2-ADA condicional como a arquitetura escolhida para a síntese de imagens neste estudo, estabelecendo uma base sólida para futuras etapas de aumento de dados e treinamento de modelos de classificação.
+    
+\subsection{Pré-processamento de imagens}
+
+Para garantir que as mamografias estivessem em um formato adequado ao treinamento do modelo \textit{StyleGAN2-ADA} condicional, todas as imagens foram primeiramente convertidas para escala de cinza, resultando em um único canal de entrada. Em seguida, as imagens foram redimensionadas para $128 \times 128$ pixels utilizando interpolação bilinear. Essa resolução inicial foi escolhida como um compromisso entre a qualidade visual das imagens e a limitação de memória da GPU, permitindo o treinamento com lotes (\textit{batch size}) de 8 imagens.
+
+Os valores dos pixels foram então convertidos em tensores do PyTorch e normalizados para o intervalo $[-1, 1]$, o que é compatível com as funções de ativação Leaky ReLU empregadas nas redes do gerador e do discriminador. Cada imagem recebeu um rótulo binário indicando se a amostra era benigna (0) ou maligna (1), com base nas informações presentes no arquivo CSV de metadados. Esses rótulos foram posteriormente convertidos em vetores \textit{one-hot} de dimensão 2, permitindo que o gerador criasse imagens condicionadas à classe correspondente.
+
+Durante o treinamento, aplicou-se uma estratégia de aumento de dados adaptativa (\textit{Adaptive Discriminator Augmentation, ADA}) para aumentar a diversidade das imagens e reduzir o sobreajuste. As transformações utilizadas incluíram \textit{flip} horizontal com probabilidade de 50\% e pequenas rotações de até 5°. A probabilidade de aplicação do ADA foi ajustada dinamicamente em função do desempenho do discriminador, visando uma meta de 60\%.
+
+O pré-processamento também considerou a preparação eficiente para a GPU, com carregamento de dados em lotes de 8 imagens, utilizando duas \textit{threads} e memória pinada quando disponível. No total, o \textit{dataset} consistiu em todas as imagens presentes no CSV fornecido, organizadas de maneira a garantir equilíbrio entre as classes e uniformidade na entrada da rede.
+    
+\subsection{Treinamento do modelo de geração}
+
+O modelo do gerador foi inicializado com pesos distribuídos normalmente ($\mu = ~0.\\ \sigma = 1$), enquanto o discriminador recebeu configuração similar. O vetor latente $z \in \mathbb{R}^{256}$ foi combinado com os vetores \textit{one-hot} das classes (benigno ou maligno) para formar a entrada condicionada do gerador. A rede mapeadora (\textit{Mapping Network}) processou $z$ para gerar o vetor $A \in \mathbb{R}^{256}$, que modulou as camadas do gerador através de \textit{Adaptive Instance Normalization} (AdaIN). Cada bloco do gerador aplicou convoluções, ruído estocástico e funções de ativação Leaky ReLU, permitindo a síntese progressiva de imagens de maior resolução.
+
+O treinamento seguiu o esquema de otimização adversarial com \textit{Adam} para o gerador e o discriminador, usando taxas de aprendizado de $0.0025$ e parâmetros $\beta_1 = 0.0$ e $\beta_2 = 0.99$. As funções de perda empregadas foram a \textit{logistic loss} para ambos os modelos e a penalidade R1 aplicada ao discriminador a cada 32 iterações. Além disso, o treinamento utilizou precisão mista (\textit{automatic mixed precision}) para reduzir consumo de memória e acelerar o processamento.
+
+O modelo também incorporou a estratégia de aumento de dados adaptativa (\textit{ADA}), ajustando dinamicamente a probabilidade de aplicar transformações como \textit{flip} horizontal e rotações pequenas, visando manter uma meta de $60\%$ de eficácia no discriminador. Para monitoramento, \textit{checkpoints} foram salvos, incluindo pesos do gerador e discriminador, otimizadores e histórico das perdas, enquanto amostras geradas fixas eram armazenadas para visualização da evolução do treinamento.\\
+
+O treinamento foi conduzido por 400 épocas, com cada época percorrendo todo o \textit{dataset}, garantindo que tanto o gerador quanto o discriminador fossem atualizados em todas as iterações. Essa configuração permitiu que o gerador aprendesse a produzir imagens médicas de alta fidelidade condicionadas à classe, minimizando sobreajuste e mantendo diversidade visual.
+
+\subsection{Uso do LPIPS para avaliação de qualidade das imagens geradas}
+
+Diversas métricas foram avaliadas na literatura para mensurar a qualidade de imagens geradas por redes neurais, dentre as quais destacam-se o PSNR (\textit{Peak Signal-to-Noise Ratio}), o SSIM (\textit{Structural Similarity Index}) e o LPIPS (\textit{Learned Perceptual Image Patch Similarity}). Enquanto o PSNR e o SSIM baseiam-se em diferenças de intensidade e estrutura de pixels, o LPIPS utiliza representações extraídas de redes neurais profundas, permitindo uma avaliação perceptual mais próxima da visão humana.
+
+Pawar et al. \cite{pawar2024esm} mostraram que modelos de geração de imagens com aparência mais realista, como o SRGAN, obtiveram baixos valores de PSNR e SSIM, mas se destacaram significativamente em LPIPS. Isso indica que as métricas tradicionais nem sempre refletem a qualidade visual percebida, especialmente quando o objetivo é gerar dados sintéticos visualmente convincentes.
+
+Dessa forma, neste trabalho optou-se pelo uso do LPIPS como métrica principal de avaliação, por apresentar maior correlação com a percepção humana e melhor sensibilidade a diferenças perceptuais sutis, mostrando-se, portanto, adequado para mensurar a fidelidade visual e o realismo das imagens sintéticas geradas. A aplicação dessa métrica permitiu avaliar a qualidade perceptual das mamografias produzidas em comparação com as imagens reais, conforme ilustrado na Figura \ref{imagens_reais_sinteticas_ben}, que apresenta amostras benignas, e na Figura \ref{imagens_reais_sinteticas_mal}, que exibe amostras malignas, em ambos os casos, a imagem (a) corresponde à amostra real e a imagem (b) à amostra sintética.
+
+\begin{figure}[H]
+    \centering
+    % Subfigura (a)
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/ben_real.jpg}
+        \caption{Imagem real}
+        \label{ben_a}
+    \end{subfigure}
+    \hfill
+    % Subfigura (b)
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/ben_sint.jpg}
+        \caption{Imagem sintética}
+        \label{ben_b}
+    \end{subfigure}
+
+    \caption{Mamografias benignas: (a) real e (b) sintética.}
+    \label{imagens_reais_sinteticas_ben}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    % Subfigura (a)
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/mal_real.jpg}
+        \caption{Imagem real}
+        \label{mal_a}
+    \end{subfigure}
+    \hfill
+    % Subfigura (b)
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/mal_sint.jpg}
+        \caption{Imagem sintética}
+        \label{mal_b}
+    \end{subfigure}
+
+    \caption{Mamografias malignas: (a) real e (b) sintética.}
+    \label{imagens_reais_sinteticas_mal}
+\end{figure}
+
+Para compor o conjunto de dados sintéticos, foram selecionadas apenas as imagens cuja métrica LPIPS apresentou valor inferior a 0.2 quando comparadas ao conjunto dos dados reais, garantindo alta similaridade perceptiva entre as amostras reais e geradas. Esse limiar foi adotado como critério de qualidade, de modo a incluir apenas imagens sintéticas com fidelidade visual e coerência estrutural adequadas.
+
+As imagens que atenderam a esse critério foram então utilizadas no treinamento da rede EfficientNet-B0, com o objetivo de aumentar a diversidade do conjunto de dados e melhorar a capacidade de generalização do modelo, sem comprometer a qualidade perceptual das amostras utilizadas.
+
+\section{Modelo de classificação}
+
+\subsection{Arquitetura do modelo}
+
+Para a tarefa de classificação de mamografias, foi utilizada a \textit{EfficientNet-B0}. Optou-se pela utilização desse modelo, devido ao seu melhor equilíbrio entre acurácia, eficiência computacional e capacidade de generalização.
+
+O modelo foi inicializado com pesos pré-treinados no conjunto de dados \textit{ImageNet}, permitindo o aproveitamento de representações visuais previamente aprendidas. A camada final da rede (\textit{classifier}) foi substituída por uma camada totalmente conectada com um único neurônio de saída e função de ativação sigmoide implícita, adequada para a classificação binária entre amostras benignas e malignas. Para acelerar o treinamento e reduzir o risco de sobreajuste, os parâmetros da base convolucional (\textit{features}) foram inicialmente congelados.
+
+As imagens de entrada foram redimensionadas para $128 \times 128$ pixels e normalizadas de acordo com as médias e desvios padrão utilizados no treinamento do \textit{ImageNet}. A rede foi treinada utilizando o otimizador \textit{Adam}, com taxa de aprendizado inicial de $1 \times ~10^{-3}$ e função de perda binária \textit{Binary Cross-Entropy with Logits (BCEWithLogitsLoss)}. O processo de validação cruzada foi realizado em 5 dobras (\textit{5-fold Cross-Validation}), garantindo uma avaliação robusta do desempenho do modelo.
+
+A escolha da \textit{EfficientNet-B0} mostrou-se adequada por apresentar maior estabilidade durante o treinamento e resultados superiores nas métricas de acurácia, F1-Score e AUC. Além disso, a arquitetura é otimizada para eficiência em GPUs modernas, permitindo melhor aproveitamento dos recursos computacionais sem comprometer a qualidade da classificação das imagens mamográficas.
+
+\subsection{Seleção das imagens sintéticas para o modelo de classificação}
+
+Após o treinamento do modelo de geração, foi realizado um processo de seleção das imagens sintéticas a serem utilizadas no treinamento do modelo de classificação. O objetivo dessa etapa foi garantir que apenas amostras sintéticas com alta qualidade perceptual e diversidade fossem incluídas, reduzindo o risco de introduzir artefatos ou imagens redundantes no conjunto de dados.
+
+Para isso, utilizou-se o LPIPS, o cálculo foi feito entre cada imagem sintética gerada e um subconjunto de imagens reais de mesma classe (benigna ou maligna).
+
+Cada imagem gerada foi comparada com as amostras reais, e o valor mínimo de LPIPS obtido foi utilizado como medida de similaridade. Apenas imagens cuja menor distância perceptual fosse inferior a um limite pré-estabelecido (LPIPS < 0.2) foram mantidas. Esse limiar foi definido empiricamente após testes iniciais, equilibrando diversidade e realismo visual das amostras selecionadas.
+
+As imagens que atenderam ao critério foram salvas em diretórios separados por classe e posteriormente integradas ao conjunto real durante o treinamento supervisionado do classificador. Esse procedimento permitiu aumentar o volume de dados de forma controlada, mantendo a coerência estatística entre os domínios real e sintético.
+
+\subsection{Divisão entre dados reais e sintéticos}
+
+Após a geração das imagens sintéticas pelo modelo \textit{StyleGAN2-ADA}, foi realizada a definição das proporções entre dados reais e sintéticos que seriam utilizadas no treinamento do classificador \textit{EfficientNet-B0}. O objetivo dessa etapa foi investigar o impacto da incorporação de imagens artificiais no desempenho do modelo de classificação, buscando um equilíbrio entre a diversidade introduzida pelos dados gerados e a fidelidade das amostras reais.
+
+Para isso, diferentes proporções de dados foram consideradas, variando desde o uso exclusivo de imagens reais até combinações em que o número de amostras sintéticas superava o de amostras reais. As razões testadas incluíram 1:1, 2:1, 3:1 e 4:1 entre imagens sintéticas e reais, mantendo o mesmo número total de amostras por classe em cada configuração. Todas as divisões foram realizadas de forma estratificada, assegurando que as classes benigna e maligna estivessem balanceadas em cada conjunto de treinamento e validação.
+
+A etapa de divisão entre dados reais e sintéticos teve papel definindo a base comparativa para a análise do impacto do uso de dados gerados artificialmente no desempenho da rede \textit{EfficientNet-B0}.
+
+\subsection{Pré-processamento de imagens reais e sintéticas}
+
+Antes do treinamento do modelo de classificação \textit{EfficientNet-B0}, foi necessário realizar o pré-processamento das imagens reais e sintéticas de modo a garantir compatibilidade com a arquitetura e consistência entre as amostras. Todas as imagens foram redimensionadas para $128 \times 128$ pixels, mantendo a resolução utilizada na etapa de geração de imagens sintéticas, o que favoreceu a padronização do fluxo de dados entre os modelos. Diferentemente do modelo gerador, as imagens foram convertidas para o formato RGB, totalizando três canais de entrada, conforme exigido pelos pesos pré-treinados no conjunto \textit{ImageNet}.
+
+As transformações de pré-processamento incluíram a normalização dos valores de pixel utilizando a média $[0.485, 0.456, 0.406]$ e o desvio padrão $[0.229, 0.224, 0.225]$, parâmetros padrão do \textit{ImageNet}. Essa normalização foi fundamental para estabilizar o treinamento e manter a coerência estatística entre o domínio original e o domínio médico das mamografias. Durante o treinamento, foram aplicadas técnicas de aumento de dados (\textit{data augmentation}) com o objetivo de reduzir o sobreajuste (\textit{overfitting}) e aumentar a robustez do modelo frente à variação visual. Entre as transformações aplicadas, destacam-se o \textit{flip} horizontal aleatório e rotações de até 5°, aplicadas de forma independente a cada amostra.
+
+A etapa de carregamento das imagens foi implementada com o \textit{DataLoader} do PyTorch, utilizando lotes de 32 amostras e duas threads para leitura paralela de dados. Sempre que disponível, foi empregada a memória pinada para otimizar a transferência entre CPU e GPU. Esse procedimento garantiu maior eficiência no treinamento, aproveitando os recursos da GPU.
+
+Por fim, as imagens foram organizadas em estruturas balanceadas de classes, correspondentes aos rótulos binários 0 (benigna) e 1 (maligna), conforme definido nos arquivos CSV de metadados. O conjunto de dados foi dividido de forma estratificada entre treino e validação dentro de cada \textit{fold} da validação cruzada, assegurando que a proporção entre as classes permanecesse constante e que o modelo recebesse uma representação equilibrada das categorias em todas as iterações de treinamento, Figura \ref{kfold}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Figures/kfold.png}
+    \caption{Esquema de validação cruzada estratificada de 5 dobras.}
+    \label{kfold}
+\end{figure}
+
+\subsection{Treinamento do modelo de classificação}
+
+O conjunto de dados real foi submetido a uma etapa de \textit{downsampling} das amostras benignas, a fim de reduzir o desbalanceamento entre as classes. Especificamente, o número de imagens benignas foi limitado a 245 amostras, mantendo todas as instâncias malignas disponíveis. Essa redução foi realizada de forma aleatória, com \textit{seed} fixa para garantir reprodutibilidade, ou seja, assegurar que os mesmos dados sejam selecionados em execuções futuras, mantendo a consistência experimental. Em seguida, as imagens sintéticas geradas pelo modelo \textit{StyleGAN2-ADA} foram adicionadas apenas ao conjunto de treinamento, preservando o conjunto de validação composto exclusivamente por imagens reais.
+
+Durante o treinamento, a rede \textit{EfficientNet-B0} foi inicializada com pesos pré-treinados no \textit{ImageNet}, e apenas a camada de classificação foi substituída por um neurônio de saída com ativação sigmoide, apropriada para o problema binário (benigno/maligno). Inicialmente, as camadas convolucionais da base foram congeladas para preservar as representações gerais de baixo nível e acelerar a convergência. O treinamento foi conduzido com o otimizador \textit{Adam}, taxa de aprendizado de $1 \times 10^{-3}$ e função de perda \textit{Binary Cross-Entropy with Logits (BCEWithLogitsLoss)}.
+
+Cada época (\textit{epoch}), que corresponde a uma passagem completa por todo o conjunto de treinamento, processou lotes de 32 imagens com aumento de dados aplicado em tempo real. As transformações incluíram rotações aleatórias de até $5^{\circ}$ e inversão horizontal, contribuindo para maior robustez do modelo frente à variação posicional das estruturas mamárias. O carregamento dos dados foi realizado com duas \textit{threads} paralelas e memória pinada (\textit{pinned memory}), técnica que fixa os dados na RAM para otimizar a transferência entre CPU e GPU, reduzindo a latência no carregamento dos lotes durante o treinamento.
+
+O treinamento foi executado por 30 épocas em cada \textit{fold}, com monitoramento contínuo das métricas de acurácia, F1-\textit{score} e AUC. Ao final de cada época, o modelo era avaliado no conjunto de validação, sendo armazenados os melhores pesos com base na acurácia obtida. Esse procedimento foi repetido para todos os \textit{folds}, resultando em cinco modelos independentes e métricas médias representativas da performance geral. Toda a execução foi realizada em uma GPU, utilizando precisão mista (\textit{mixed precision}) para reduzir o consumo de memória e acelerar o processamento.
+ 
+\subsection{Métricas de classificação}
+
+Para avaliar o desempenho do modelo \textit{EfficientNet-B0} no problema de detecção de lesões mamográficas, foram empregadas métricas consolidadas na literatura de aprendizado de máquina para tarefas de classificação binária: acurácia, F1-score e área sob a curva ROC (AUC).
+
+A acurácia mede a proporção total de predições corretas em relação ao número total de amostras avaliadas, e é uma métrica global definida pela equação \eqref{eq31}:
+
+\begin{equation}
+\text{Acurácia} = \frac{TP + TN}{TP + TN + FP + FN},
+\label{eq31}
+\end{equation}
+
+\noindent onde $TP$ (verdadeiros positivos) representa o número de lesões malignas corretamente classificadas, $TN$ (verdadeiros negativos) o número de amostras benignas corretamente identificadas, $FP$ (falsos positivos) o número de amostras benignas classificadas incorretamente como malignas e $FN$ (falsos negativos) o número de amostras malignas preditas como benignas.
+
+O F1-score, por sua vez, é a média harmônica entre a precisão (\textit{precision}) e a revocação (\textit{recall}), sendo especialmente útil em cenários de classes desbalanceadas, como é comum em bases médicas. Suas definições são dadas pela equação \eqref{eq32}:
+
+\begin{equation}
+\text{Precisão} = \frac{TP}{TP + FP}, \quad
+\text{Revocação} = \frac{TP}{TP + FN},
+\label{eq32}
+\end{equation}
+
+\noindent e o F1-score é calculado pela equação \eqref{eq33}:
+
+\begin{equation}
+\text{F1-score} = 2 \times \frac{\text{Precisão} \times \text{Revocação}}{\text{Precisão} + \text{Revocação}}.
+\label{eq33}
+\end{equation}
+
+Essa métrica, equação \eqref{eq33}, penaliza fortemente classificações incorretas em qualquer uma das classes, equilibrando a capacidade do modelo de detectar casos positivos (revocação) e evitar alarmes falsos (precisão).
+
+Já a área sob a curva ROC (AUC — \textit{Area Under the Curve}) quantifica a capacidade discriminatória do modelo ao variar o limiar de decisão. A curva ROC (\textit{Receiver Operating Characteristic}) é construída a partir da relação entre a taxa de verdadeiros positivos (TPR) e a taxa de falsos positivos (FPR), definidas pela equação \eqref{eq34}:
+
+\begin{equation}
+\text{TPR} = \frac{TP}{TP + FN}, \quad
+\text{FPR} = \frac{FP}{FP + TN}.
+\label{eq34}
+\end{equation}
+
+A métrica AUC é então calculada como a integral da curva ROC, conforme mostrado na equação \eqref{eq35}:
+
+\begin{equation}
+\text{AUC} = \int_{0}^{1} \text{TPR}(\text{FPR}) \, d(\text{FPR}).
+\label{eq35}
+\end{equation}
+
+Essa integral representa a área sob a curva ROC, assumindo valores entre 0 e 1. Um modelo com $\text{AUC} = 0.5$ equivale a uma classificação aleatória, enquanto valores próximos de 1 indicam excelente separabilidade entre as classes.
+
+As métricas foram calculadas individualmente para cada \textit{fold} e posteriormente agregadas por média e desvio padrão, conforme a metodologia de validação cruzada implementada. Esses valores médios forneceram uma estimativa estável da performance geral do modelo.
+
+
+\chapter{Resultados}
+
+Este capítulo apresenta e discute os resultados obtidos a partir dos experimentos realizados com os modelos de geração e classificação de imagens de mamografia. Inicialmente, são descritos os resultados referentes à geração de imagens sintéticas utilizando o modelo StyleGAN2-ADA, com análise baseada na métrica perceptual LPIPS para avaliar a qualidade e a similaridade das amostras geradas em relação às imagens reais.
+
+Em seguida, são apresentados os resultados da classificação de mamografias empregando o modelo EfficientNet-B0, incluindo a avaliação do impacto da incorporação de imagens sintéticas no desempenho do classificador. As métricas de acurácia, F1-score e AUC são analisadas de forma comparativa, buscando identificar a proporção ideal entre dados reais e sintéticos que maximize a performance do modelo. Por fim, são discutidas as implicações dos resultados obtidos, bem como as limitações e observações relevantes quanto à viabilidade computacional dos experimentos realizados.
+
+\section{Geração de imagens de mamografia}
+
+O gerador StyleGAN2-ADA foi treinado com um conjunto relativamente reduzido de 553 imagens, sendo 245 classificadas como malignas e 308 como benignas. Essa limitação de amostras representa um desafio relevante, principalmente pela disparidade entre as classes, que pode afetar a capacidade do modelo de capturar adequadamente as variações presentes nas imagens malignas.
+
+A análise da distribuição dos valores LPIPS, Figura \ref{resultados_lpips}, na geração de 1000 imagens para classe benigna e 1000 para maligna, mostra que a maioria das imagens geradas apresenta alta similaridade perceptual em relação às imagens reais. A distribuição geral apresenta média de 0.247 e mediana de 0.249, com concentração em torno de 0.25, indicando que o gerador manteve um padrão de qualidade estável ao longo das amostras. A proximidade entre média e mediana sugere uma distribuição simétrica, sem a presença de valores extremos significativos.
+
+Ao observar a distribuição por classe, Figura \ref{distr_class_lpips}, nota-se que as imagens malignas tendem a apresentar valores de LPIPS ligeiramente mais altos em comparação às benignas. Esse comportamento pode estar diretamente relacionado à menor quantidade de exemplos malignos disponíveis no treinamento, o que limita a capacidade do modelo em generalizar os padrões dessa classe. Como consequência, o gerador produz imagens malignas com maior variabilidade estrutural e, portanto, diferenças perceptuais um pouco mais pronunciadas em relação às imagens reais. Essa tendência é corroborada pela curva de densidade de probabilidade, onde as imagens malignas exibem distribuição mais ampla, indicando maior dispersão dos valores LPIPS.
+
+\begin{figure}[H]
+    \centering
+    % Subfigura (a)
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/distr_lpips.jpg}
+        \caption{Distribuição LPIPS para todas as imagens}
+        \label{distr_lpips}
+    \end{subfigure}
+    \hfill
+    % Subfigura (b)
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/distr_class_lpips.jpg}
+        \caption{Distribuição LPIPS para cada classe de imagem}
+        \label{distr_class_lpips}
+    \end{subfigure}
+    % Subfigura (c)
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/dens_lpips.jpg}
+        \caption{Densidade LPIPS}
+        \label{dens_lpips}
+    \end{subfigure}
+    \hfill
+    % Subfigura (d)
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/box_lpips.jpg}
+        \caption{Box plot LPIPS}
+        \label{box_lpips}
+    \end{subfigure}
+
+    \caption{Gráficos dos valores do LPIPS na geração de 1000 imagens para cada classe usando StyleGAN2-ADA. Em laranja estão representadas as classes malignas e em azul as benignas.}
+    \label{resultados_lpips}
+\end{figure}
+
+Mesmo com essa diferença, a sobreposição significativa entre as distribuições das duas classes e a proximidade das medianas no box plot, Figura \ref{box_lpips}, demonstram que o modelo manteve uma qualidade perceptual consistente entre as categorias. A presença de poucos outliers e a amplitude interquartílica semelhante reforçam a estabilidade do processo de geração, apesar do número reduzido de imagens reais utilizadas para o treinamento.
+
+\section{Classificação de mamografias}
+
+Os resultados da avaliação perceptual indicam que o modelo generativo foi capaz de reproduzir de forma consistente a distribuição visual das mamografias reais, gerando amostras sintéticas com elevada fidelidade e realismo. Essa coerência visual sugere que as imagens produzidas preservam características estruturais relevantes das mamografias reais, tornando viável sua utilização como complemento no treinamento de modelos de classificação. Assim, procedeu-se à etapa de avaliação quantitativa, na qual se investigou o impacto da inclusão dessas imagens sintéticas no desempenho do classificador \textit{EfficientNet-B0}.
+
+Após a seleção das imagens sintéticas (LPIPS < 0.2), o impacto da sua utilização no treinamento do modelo \textit{EfficientNet-B0} foi avaliado por meio de validação cruzada estratificada de cinco dobras. Esse procedimento garantiu que as proporções entre as classes benignas e malignas fossem preservadas em todas as partições, permitindo uma avaliação equilibrada do desempenho do classificador. Em cada iteração, o modelo foi treinado com a combinação de imagens reais e sintéticas, enquanto a avaliação foi realizada exclusivamente sobre imagens reais, assegurando que a mensuração de desempenho refletisse a capacidade de generalização do modelo.
+
+Os resultados obtidos utilizando apenas imagens reais revelaram um desempenho inicial moderado, com \textbf{acurácia média de 0.606}, \textbf{F1-score médio de 0.573} e \textbf{AUC de 0.665}. O desempenho é condizente com o tamanho reduzido e o desbalanceamento do conjunto original, composto por 553 imagens (308 benignas e 245 malignas). A partir da inclusão de imagens sintéticas geradas pelo \textit{StyleGAN2-ADA}, observou-se uma tendência de melhoria nas métricas de desempenho, especialmente nas proporções mais equilibradas entre dados reais e sintéticos.
+
+\begin{table}[H]
+\centering
+\caption{Resultados da validação cruzada (EfficientNet-B0).}
+\label{tab:efficientnet_results}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{0.95\textwidth}{l *{3}{>{\centering\arraybackslash}X}}
+\toprule
+\textbf{Proporção} & \textbf{Acurácia Média $\pm$ DP} & \textbf{F1-Score Médio $\pm$ DP} & \textbf{AUC Média $\pm$ DP} \\ \midrule
+Apenas reais & 0.606 $\pm$ 0.035 & 0.573 $\pm$ 0.056 & 0.665 $\pm$ 0.034 \\
+1:1 & 0.643 $\pm$ 0.038 & 0.630 $\pm$ 0.046 & 0.703 $\pm$ 0.039 \\
+\textbf{2:1} & \textbf{0.651 $\pm$ 0.030} & \textbf{0.658 $\pm$ 0.017} & \textbf{0.703 $\pm$ 0.029} \\
+3:1 & 0.618 $\pm$ 0.033 & 0.595 $\pm$ 0.065 & 0.667 $\pm$ 0.041 \\
+4:1 & 0.616 $\pm$ 0.037 & 0.583 $\pm$ 0.043 & 0.679 $\pm$ 0.061 \\ 
+\bottomrule
+\end{tabularx}
+\end{table}
+
+A Tabela~\ref{tab:efficientnet_results} mostra que o uso de imagens sintéticas foi benéfico até a proporção \textbf{2:1}, na qual se observaram os maiores valores de acurácia, F1-score e AUC. O aumento na proporção 1:1 já resultou em uma melhora perceptível, indicando que a inclusão de dados gerados pelo StyleGAN2-ADA contribuiu para ampliar a variabilidade visual do conjunto de treinamento, permitindo ao modelo aprender representações mais robustas das características mamográficas. O ganho mais expressivo foi observado na proporção 2:1, com um incremento de aproximadamente 7,4\% em acurácia e 14,8\% em F1-score em relação ao cenário com apenas dados reais.
+
+A partir da proporção 3:1, contudo, nota-se um declínio no desempenho do classificador. Esse comportamento sugere que o aumento excessivo de amostras sintéticas pode gerar redundância ou introduzir ruído perceptual, desviando o modelo das distribuições estatísticas originais das imagens reais. Assim, embora as imagens geradas apresentem boa fidelidade visual conforme demonstrado pela análise de LPIPS, seu uso em excesso tende a reduzir a especificidade do aprendizado, impactando negativamente a acurácia final.
+
+Além disso, observa-se que os desvios padrão permanecem baixos em todas as proporções, o que indica consistência e estabilidade nos resultados obtidos nas diferentes dobras de validação. Essa estabilidade demonstra que o comportamento do modelo é reprodutível, sem dependência de partições específicas do conjunto de dados.
+
+Em síntese, os resultados do EfficientNet-B0 demonstram que a inclusão moderada de imagens sintéticas contribui de forma significativa para o aprimoramento do desempenho do classificador. O cenário de melhor desempenho foi alcançado na proporção \textbf{2:1 (sintético:real)}, na qual o modelo apresentou simultaneamente maior acurácia, equilíbrio entre precisão e sensibilidade (F1-score) e maior área sob a curva ROC (AUC).
+
+Para garantir a viabilidade de treinamento e inferência, foram adotadas escolhas de arquitetura que equilibram complexidade e desempenho, como a utilização do \textbf{StyleGAN2-ADA condicional} com parâmetros reduzidos e do \textbf{EfficientNet-B0} como classificador, ambos reconhecidos por sua boa performance em sistemas com recursos limitados. A inclusão de imagens sintéticas foi planejada levando em consideração o tamanho reduzido do conjunto de dados real, com o objetivo de aumentar a diversidade amostral sem sobrecarregar a memória ou causar saturação do processo de treinamento.
+
+\chapter{Conclusão}
+
+A limitação no acesso a grandes bases de imagens médicas rotuladas representa um dos principais desafios para o treinamento eficaz de modelos de aprendizado profundo aplicados à detecção de lesões em mamografias. Diante desse problema, este trabalho teve como objetivo investigar o uso de imagens sintéticas geradas por modelos generativos para ampliar conjuntos de dados reais e aprimorar o desempenho de classificadores baseados em redes neurais convolucionais.
+
+Para atingir esse objetivo, foi proposta uma estratégia que combinou o uso do modelo StyleGAN2-ADA na geração de imagens de mamografia com a aplicação da métrica LPIPS como filtro de similaridade perceptual, garantindo maior fidelidade entre as amostras sintéticas e as reais. As imagens geradas foram então integradas ao treinamento do classificador EfficientNet-B0, permitindo avaliar o impacto das proporções entre dados sintéticos e reais no desempenho do modelo.
+
+Os resultados demonstraram que a incorporação controlada de imagens sintéticas contribuiu de forma significativa para a melhoria das métricas de acurácia, F1-score e AUC-ROC, especialmente nas proporções de 1:1 e 2:1 entre imagens reais e geradas. Esses achados indicam que a geração sintética de dados é uma alternativa para mitigar o problema da escassez de amostras, ampliando a capacidade do modelo de generalizar padrões relevantes das classes benignas e malignas. Contudo, verificou-se que o aumento excessivo de dados artificiais (proporção 3:1) resultou em leve queda de desempenho, possivelmente devido à introdução de redundâncias ou inconsistências perceptuais no conjunto de treinamento.
+
+A execução dos experimentos também demonstrou a viabilidade computacional da proposta. Mesmo com uma infraestrutura moderada, GPU RTX 4060 de 8 GB, processador Intel Core i5-12400F e 16 GB de RAM, foi possível realizar o treinamento completo dos modelos dentro de prazos adequados, sem prejuízo ao desempenho. Isso reforça a aplicabilidade da abordagem em contextos acadêmicos e institucionais com recursos limitados.
+
+Como dificuldades enfrentadas, destacam-se o tempo elevado de treinamento do modelo gerador, a necessidade de ajustes finos nos hiperparâmetros para evitar artefatos visuais, a limitação do conjunto original que restringiu a diversidade das amostras e a complexidade na escolha de arquiteturas adequadas para o trabalho, que exigiu um equilíbrio entre desempenho e viabilidade computacional. Para trabalhos futuros, sugere-se a ampliação da base de dados com imagens provenientes de diferentes fontes e equipamentos, além da exploração de arquiteturas mais recentes e eficientes.
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{abntex2-modelo-references}
+
+\end{document}

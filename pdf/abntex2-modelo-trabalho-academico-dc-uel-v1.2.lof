@@ -1,0 +1,27 @@
+\babel@toc {brazil}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Processo de aprendizagem supervisionada.}}{20}{figure.caption.14}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Representação visual do classificador \cite {nasteski2017overview}.}}{20}{figure.caption.15}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Representação visual da regressão linear. Adaptada de \cite {nasteski2017overview}.}}{20}{figure.caption.16}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Representação visual de agrupamento \cite {nasteski2017overview}.}}{21}{figure.caption.17}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Representação visual de associação \cite {nasteski2017overview}.}}{21}{figure.caption.18}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Camadas de uma rede neural artificial \textit {feed-forward}. Adaptada de \cite {wu2018development}.}}{22}{figure.caption.19}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Diagrama esquemático de um neurônio artificial \cite {ding2018activation}.}}{23}{figure.caption.20}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Arquitetura de redes multicamadas. Adaptada de \cite {massaoudi2024machine}.}}{24}{figure.caption.21}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Arquitetura de uma rede neural convolucional. Adaptada de \cite {rguibi2022cxai}.}}{25}{figure.caption.22}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Operação de convolução. Adaptada de \cite {goodfellow2016deep}.}}{25}{figure.caption.23}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Função de ativação ReLU.}}{26}{figure.caption.24}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Comparação entre o \textit {Max Pooling} e \textit {Average Pooling} \cite {rakshit2021cross}.}}{27}{figure.caption.25}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Arquitetura do EfficientNet-B0 \cite {ahmed2022classification}}}{27}{figure.caption.26}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Esquema de treinamento da GAN.}}{29}{figure.caption.27}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Esquema de treinamento da WGAN-GP. Adaptada de \cite {patil2023wgan}.}}{32}{figure.caption.28}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Esquema de treinamento da cGAN. Adaptada de \cite {li2025conditional}.}}{33}{figure.caption.29}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Imagens do conjunto de dados antes da filtragem.}}{41}{figure.caption.31}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Arquitetura da cWGAN-GP}}{43}{figure.caption.32}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Mamografias sintéticas geradas pela cWGAN-GP}}{43}{figure.caption.33}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Gráficos dos valores do LPIPS na geração de 1000 imagens para cada classe usando WGAN-GP. Em laranja estão representadas as classes malignas e em azul as benignas.}}{44}{figure.caption.34}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Arquitetura do gerador}}{45}{figure.caption.35}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Arquitetura do discriminador}}{46}{figure.caption.36}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Mamografias benignas: (a) real e (b) sintética.}}{49}{figure.caption.37}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Mamografias malignas: (a) real e (b) sintética.}}{49}{figure.caption.38}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Esquema de validação cruzada estratificada de 5 dobras.}}{52}{figure.caption.39}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Gráficos dos valores do LPIPS na geração de 1000 imagens para cada classe usando StyleGAN2-ADA. Em laranja estão representadas as classes malignas e em azul as benignas.}}{56}{figure.caption.40}%

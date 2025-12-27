@@ -1,0 +1,62 @@
+\changetocdepth {4}
+\babel@toc {brazil}{}\relax 
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase []{Introdução}}{15}{chapter.1}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Fundamentação Teórica}}{17}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Visão computacional}{17}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Visão computacional na area médica}{18}{subsection.2.1.1}%
+\contentsline {section}{\numberline {2.2}Aprendizagem de máquina}{18}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Aprendizagem supervisionada}{19}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Aprendizagem não supervisionada}{20}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Redes neurais}{21}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Neurônio artificial (Perceptron)}{22}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Redes multicamadas}{23}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Redes neurais convolucionais}{24}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Detectores de características (Kernels)}{25}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Função de ativação ReLU}{26}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}\textit {Pooling} (Subamostragem)}{26}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}\textit {Flattening} e camadas densas}{27}{subsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.4.5}EfficientNet-B0}{27}{subsection.2.4.5}%
+\contentsline {section}{\numberline {2.5}Inteligência artificial generativa}{28}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}DCGAN}{31}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}WGAN-GP}{31}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}\textit {Conditional} GAN}{32}{subsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.5.4}StyleGAN2-ADA}{33}{subsection.2.5.4}%
+\contentsline {section}{\numberline {2.6}Métricas de avaliação de qualidade de imagem}{34}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}PSNR}{35}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}SSIM}{35}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.3}LPIPS}{35}{subsection.2.6.3}%
+\contentsline {subsubsection}{\numberline {2.6.3.1}Funcionamento}{36}{subsubsection.2.6.3.1}%
+\contentsline {subsubsection}{\numberline {2.6.3.2}Vantagens e limitações}{36}{subsubsection.2.6.3.2}%
+\contentsline {section}{\numberline {2.7}Trabalhos correlatos: dados mamográficos rotulados}{37}{section.2.7}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Desenvolvimento}}{40}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Ambiente Computacional}{40}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Conjunto de dados}{40}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Geração de imagens sintéticas}{42}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Arquitetura do modelo de geração}{42}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Pré-processamento de imagens}{46}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Treinamento do modelo de geração}{47}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Uso do LPIPS para avaliação de qualidade das imagens geradas}{48}{subsection.3.3.4}%
+\contentsline {section}{\numberline {3.4}Modelo de classificação}{50}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Arquitetura do modelo}{50}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Seleção das imagens sintéticas para o modelo de classificação}{50}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Divisão entre dados reais e sintéticos}{51}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Pré-processamento de imagens reais e sintéticas}{51}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.5}Treinamento do modelo de classificação}{52}{subsection.3.4.5}%
+\contentsline {subsection}{\numberline {3.4.6}Métricas de classificação}{53}{subsection.3.4.6}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Resultados}}{55}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Geração de imagens de mamografia}{55}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Classificação de mamografias}{56}{section.4.2}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{59}{chapter.5}%
+\vspace {\cftbeforechapterskip }
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{60}{section*.44}%

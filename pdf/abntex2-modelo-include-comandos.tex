@@ -1,0 +1,570 @@
+%% abtex2-modelo-include-comandos.tex, v-1.7.1 laurocesar
+%% Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://abntex2.googlecode.com/
+%%
+%% This work consists of the files abntex2-modelo-include-comandos.tex
+%%
+
+% ---
+% Este capítulo, utilizado por diferentes exemplos do abnTeX2, ilustra o uso de
+% comandos do abnTeX2 e de LaTeX.
+% ---
+ 
+\chapter{Fundamentação Teórica}\label{cap_exemplos}
+
+O Capítulo \ref{cap_exemplos} apresenta a fundamentação teórica necessária para compreender os conceitos e técnicas utilizados ao longo deste trabalho. Inicia-se com uma introdução à visão computacional, abordando seus princípios básicos e aplicações, com destaque para sua utilização na área médica. Em seguida, são explorados os principais paradigmas de aprendizagem de máquina, incluindo as abordagens supervisionada, não supervisionada e por reforço, fundamentais para o desenvolvimento de sistemas inteligentes. O capítulo segue com a apresentação das redes neurais, desde o funcionamento de um neurônio artificial e suas funções internas, até a estrutura de redes multicamadas. A partir disso, são discutidas as redes neurais convolucionais, amplamente utilizadas em tarefas de análise de imagens, detalhando seus componentes como kernels, funções de ativação, \textit{pooling} e camadas densas. Em um nível mais avançado, dentro das inteligências artificiais generativas, são introduzidas as Redes Adversárias Generativas, destacando sua arquitetura, funcionamento interno (com redes geradora e discriminadora), processo de treinamento e variantes relevantes como DCGAN, WGAN-GP e Conditional GAN. Também são discutidos os desafios inerentes ao treinamento dessas redes, bem como suas aplicações práticas. Para avaliar a qualidade das imagens geradas, são apresentadas métricas específicas, como PSNR, SSIM e LPIPS, com explicações sobre seu funcionamento, vantagens e limitações. Por fim, a seção encerra com a apresentação de trabalhos correlatos, que contextualizam a pesquisa no estado da arte da área.
+
+% ---
+\section{Visão computacional}
+% ---
+A visão computacional é um ramo da ciência da computação que busca desenvolver algoritmos capazes de interpretar e extrair informações úteis a partir de dados visuais, como imagens e vídeos. Essa área integra conceitos de matemática, estatística, inteligência artificial e processamento digital de imagens para permitir que sistemas computacionais simulem a percepção visual humana \cite{gonzalez2009digital, szeliski2022computer}.
+
+Os primeiros esforços em visão computacional remontam aos anos 1960, com o uso de técnicas básicas de segmentação e detecção de bordas. A partir das décadas de 1980 e 1990, surgiram abordagens mais robustas, como os detectores de características SIFT e SURF, que foram fundamentais para tarefas como reconstrução 3D e reconhecimento de objetos \cite{lowe2004distinctive, bay2006surf}. Ainda nesse período, pesquisadores desenvolveram modelos estatísticos e probabilísticos, como campos aleatórios de Markov, para melhorar a modelagem de cenas visuais \cite{li2009markov}.\\
+
+O grande avanço ocorreu na década de 2010 com o surgimento de arquiteturas baseadas em redes neurais profundas, especialmente as redes neurais convolucionais (CNNs), que possibilitaram a extração automática de padrões complexos diretamente das imagens. O marco dessa transição foi a vitória do modelo AlexNet na competição ImageNet em 2012, estabelecendo um novo padrão de desempenho \cite{krizhevsky2012imagenet}.
+
+Esse progresso consolida o entendimento do processo de visão computacional como um fluxo estruturado em três etapas principais \cite{szeliski2022computer, jain2000statistical}, descritas por: (i) extração de características (como cor, forma e textura), (ii) interpretação por meio de reconhecimento de padrões, e (iii) tomada de decisão com base nos resultados obtidos, como segmentação ou classificação.
+
+Hoje, a visão computacional está presente em diferentes setores, como a indústria automotiva (condução autônoma e assistência ao motorista) \cite{janai2020computer}, agricultura de precisão \cite{kamilaris2018deep}, com especial destaque, na medicina \cite{litjens2017survey}. Dessa forma, será explorado a seguir como esses conceitos fundamentam o desenvolvimento de modelos generativos para mamografias.
+
+\subsection{Visão computacional na area médica}
+
+Na área médica, a visão computacional se destaca pela sua aplicação em sistemas de apoio ao diagnóstico, conhecidos como \textit{computer-aided diagnosis} (CAD). Esses sistemas utilizam algoritmos de processamento de imagens para auxiliar profissionais da saúde na detecção, segmentação e análise de anomalias em exames como radiografias, ressonâncias magnéticas e tomografias computadorizadas \cite{litjens2017survey, greenspan2016guest}.
+
+O uso de redes neurais profundas, especialmente CNNs, tornou-se relevante na análise de imagens médicas, dada sua capacidade de aprender representações discriminativas complexas. Essas redes são capazes de classificar tecidos, identificar lesões e monitorar o progresso de doenças \cite{shen2017deep}. 
+
+Esses avanços reduzem significativamente os tempos de diagnóstico, aumentam a precisão clínica e minimizam erros humanos. Com a popularização de dispositivos médicos portáteis e o uso de modelos otimizados, a visão computacional médica caminha para soluções em tempo real, mesmo em contextos com infraestrutura limitada \cite{howard2017mobilenets}.
+
+% ---
+\section{Aprendizagem de máquina}
+% ---
+
+A Aprendizagem de Máquina é uma subárea da inteligência artificial que se concentra no desenvolvimento de algoritmos capazes de aprender a partir de dados e melhorar seu desempenho com o tempo, sem necessidade de reprogramação explícita. Esses algoritmos constroem modelos preditivos ou descritivos a partir de dados históricos, sendo amplamente utilizados em tarefas como classificação, previsão, agrupamento e tomada de decisão \cite{mitchell1997machine, alpaydin2020introduction}.
+
+As principais categorias da aprendizagem de máquina são: aprendizagem supervisionada, aprendizagem não supervisionada e aprendizagem por reforço.
+
+\subsection{Aprendizagem supervisionada}
+
+A aprendizagem supervisionada envolve o uso de dados rotulados, ou seja, cada entrada (conjunto de características) está associada a uma saída esperada (rótulo). O objetivo é construir um modelo que aprenda a associar corretamente as entradas às saídas, de forma que possa generalizar para dados novos \cite{alpaydin2020introduction, bishop2006pattern}.
+
+\begin{itemize}
+    \item \textbf{Principais características:}
+    \begin{itemize}
+        \item O modelo aprende a partir de pares entrada/saída conhecidos.
+        \item Após o treinamento, pode prever o rótulo de novos exemplos.
+    \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+    \item \textbf{Exemplos típicos no contexto médico:}
+    \begin{itemize}
+        \item \textbf{Classificação:} Determinar se uma lesão mamária identificada em uma mamografia é benigna ou maligna.
+        \item \textbf{Regressão:} Estimar a probabilidade de malignidade de um nódulo ou o tamanho esperado de um tumor com base em características radiômicas extraídas da imagem.
+    \end{itemize}
+\end{itemize}
+
+O processo de aprendizaggem supervisionada é bastante eficaz quando se dispõe de grande volume de dados anotados, e seu desempenho pode ser medido diretamente pela precisão das previsões em dados de teste \cite{geron2019hands}. A Figura \ref{fig1} ilustra os principais passos desse processo. Para complementar, a Figura \ref{fig2} apresenta uma representação visual de um classificador, enquanto a Figura \ref{fig3} mostra a representação visual de um modelo de regressão linear (modelo estatístico que busca encontrar a relação linear entre uma variável dependente e uma ou mais variáveis independentes).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Figures/superviser.jpg}
+    \caption{Processo de aprendizagem supervisionada.}
+    \label{fig1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Figures/classification.jpg}
+    \caption{Representação visual do classificador \cite{nasteski2017overview}.}
+    \label{fig2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Figures/regression.png}
+    \caption{Representação visual da regressão linear. Adaptada de \cite{nasteski2017overview}.}
+    \label{fig3}
+\end{figure}
+
+\subsection{Aprendizagem não supervisionada}
+
+Diferentemente da aprendizagem supervisionada, a aprendizagem não supervisionada lida com dados não rotulados. O objetivo é explorar a estrutura subjacente dos dados para identificar padrões, agrupamentos ou representações úteis \cite{hastie2009elements, reddy2018data}.
+
+\begin{itemize}
+    \item \textbf{Principais características:}
+    \begin{itemize}
+        \item O modelo não conhece os rótulos corretos.
+        \item Utilizado para descoberta de conhecimento em grandes volumes de dados.
+    \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+    \item \textbf{Exemplos típicos no contexto médico:}
+    \begin{itemize}
+        \item \textbf{Clusterização:} Agrupar pacientes com base em características clínicas ou de imagem (por exemplo, mamografias com padrões de textura semelhantes), permitindo identificar subtipos de câncer de mama ou perfis de risco.
+        \item \textbf{Associação:} Descobrir relações entre variáveis médicas, como a ocorrência conjunta de determinadas características radiômicas e fatores genéticos ou hormonais, que podem estar associados à evolução da doença.
+    \end{itemize}
+\end{itemize}
+
+As técnicas empregadas na aprendizagem não supervisonada são amplamente usadas em análise exploratória de dados e em sistemas de recomendação \cite{reddy2018data, tan2016introduction}. As Figuras \ref{fig4} e \ref{fig5} ilustram, respectivamente, a representação visual dos processos de clusterização e associação.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Figures/clustering.jpg}
+    \caption{Representação visual de agrupamento \cite{nasteski2017overview}.}
+    \label{fig4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Figures/data_mining_association.jpg}
+    \caption{Representação visual de associação \cite{nasteski2017overview}.}
+    \label{fig5}
+\end{figure}
+
+% ---
+\section{Redes neurais}
+% ---
+
+Dentro do campo da aprendizagem de máquina, as redes neurais artificiais se destacam como modelos computacionais inspirados na estrutura e funcionamento do cérebro humano. Elas são compostas por unidades chamadas neurônios artificiais, organizadas em camadas interconectadas que processam informações de forma paralela, como ilustrado na Figura \ref{fig6}. Esses modelos são amplamente utilizados em tarefas como reconhecimento de padrões, processamento de linguagem natural e visão computacional \cite{haykin2009,goodfellow2016}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{Figures/nn.png}
+    \caption{Camadas de uma rede neural artificial \textit{feed-forward}. Adaptada de \cite{wu2018development}.}
+    \label{fig6}
+\end{figure}
+
+\subsection{Neurônio artificial (Perceptron)}
+
+O \textit{Perceptron}, proposto por Rosenblatt em 1958, é o modelo mais simples de neurônio artificial, que simula o comportamento de um neurônio biológico ao combinar entradas ponderadas, aplicar uma transformação e gerar uma saída, como mostra a Figura \ref{fig7}. Esse modelo serviu como base para o desenvolvimento das redes neurais modernas \cite{rosenblatt1958,aggarwal2018}.
+
+A função soma realiza a agregação ponderada das entradas recebidas. Considerando um conjunto de entradas $x_1, x_2, \dots, x_n$ e seus respectivos pesos $w_1, w_2, \dots, w_n$, além de um termo de viés $b$. O resultado da soma é dado pela equação \eqref{eq1}:
+
+\begin{equation}
+    z = \sum_{i=1}^{n} w_i x_i + b,
+    \label{eq1}
+\end{equation}
+
+\noindent onde $x_i$ representa a entrada $i$, $w_i$ o peso associado à entrada $x_i$ e $b$ termo de viés que permite deslocar a função de ativação.
+
+Após o cálculo da função soma, aplica-se uma função de ativação que define a saída do neurônio. Essa função introduz não-linearidade no modelo, sendo essencial para que redes neurais possam modelar relações complexas \cite{glorot2010,nwankpa2018}.
+
+As principais funções de ativação são:
+
+\begin{itemize}
+    \item \textbf{Degrau}: Função binária que retorna 0 ou 1 dependendo se $z$ está abaixo ou acima de um limiar.
+    
+    \item \textbf{Sigmoide}: Função, apresentada na equação \eqref{eq2}, que retorna valores entre 0 e 1, permitindo a interpretação probabilística da saída.
+
+    \begin{equation}
+        \sigma(z) = \frac{1}{1 + e^{-z}}
+        \label{eq2}
+    \end{equation}
+    
+    \item \textbf{ReLU (Rectified Linear Unit)}: Introduz uma não-linearidade simples e eficiente, sendo amplamente adotada em redes neurais profundas, mostrada na equação \eqref{eq3} \cite{lecun2012}.
+    
+    \begin{equation}
+        \text{ReLU}(z) = \max(0, z)
+        \label{eq3}
+    \end{equation}
+    
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figures/perceptron.png}
+    \caption{Diagrama esquemático de um neurônio artificial \cite{ding2018activation}.}
+    \label{fig7}
+\end{figure}
+
+% ---
+\subsection{Redes multicamadas}
+% ---
+
+As redes do tipo \textit{Multilayer Perceptron} (MLP) representam uma classe fundamental de redes neurais artificiais, caracterizadas por possuírem múltiplas camadas de neurônios totalmente conectadas, ilustrado na Figura \ref{fig8}. Essas redes são compostas por, no mínimo, três camadas: uma camada de entrada, uma ou mais camadas ocultas e uma camada de saída \cite{aggarwal2018,haykin2009}.
+
+\begin{itemize}
+    \item \textbf{Camada de entrada}: Responsável por receber os dados iniciais e repassá-los para as camadas subsequentes.
+    
+    \item \textbf{Camadas ocultas}: Local onde ocorre o principal processamento dos dados. Cada neurônio de uma camada está conectado a todos os neurônios da próxima, caracterizando uma estrutura densa (\textit{fully connected}). Quando uma rede possui muitas dessas camadas, ela é considerada uma rede profunda, formando a base do aprendizado profundo (\textit{deep learning}) \cite{goodfellow2016}.
+    
+    \item \textbf{Camada de saída}: Responsável por gerar a saída final da rede, que pode representar uma classificação, regressão ou outro tipo de predição.
+\end{itemize}
+
+O aprendizado em redes multicamadas é viabilizado pelo algoritmo de retropropagação do erro, conhecido como \textit{backpropagation}, que permite o ajuste eficiente dos pesos sinápticos da rede com base nos erros cometidos durante a previsão \cite{rumelhart1986,lecun2015}.
+
+O processo de treinamento com \textit{backpropagation} pode ser descrito em três etapas principais:
+
+\begin{enumerate}
+    \item \textbf{\textit{Forward pass}}: Os dados fluem da entrada até a saída, passando por todas as camadas, e a rede gera uma predição.
+
+    \item \textbf{Cálculo do erro}: A diferença entre a saída gerada e o valor real é calculada por meio de uma função de perda, como o erro quadrático médio ou a entropia cruzada.
+
+    \item \textbf{\textit{Backward pass}}: Utilizando a regra da cadeia do cálculo diferencial, o algoritmo computa os gradientes da função de perda em relação aos pesos da rede, os gradientes são utilizados para atualizar os pesos, geralmente com o algoritmo de gradiente descendente ou suas variantes \cite{bishop2006}.
+\end{enumerate}
+
+O ciclo é repetido por várias iterações, conhecidas como épocas, o que permite à rede ajustar seus parâmetros internos para capturar padrões complexos nos dados.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figures/multilayer.png}
+    \caption{Arquitetura de redes multicamadas. Adaptada de \cite{massaoudi2024machine}.}
+    \label{fig8}
+\end{figure}
+
+% ---
+\section{Redes neurais convolucionais}
+% ---
+
+As redes neurais convolucionais (CNNs) são uma classe de modelos amplamente utilizada em tarefas de visão computacional, como reconhecimento de objetos, detecção de rostos ou classificar mamografias em benignas ou malignas. Inspiradas na organização do córtex visual animal, as CNNs utilizam camadas especializadas para extração automática de características espaciais em imagens, demonstradas na Figura \ref{fig9} \cite{lecun2015deep, li2021survey}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\linewidth]{Figures/cnn.png}
+    \caption{Arquitetura de uma rede neural convolucional. Adaptada de \cite{rguibi2022cxai}.}
+    \label{fig9}
+\end{figure}
+
+\subsection{Detectores de características (Kernels)}
+
+O núcleo funcional de uma CNN é a camada convolucional, que utiliza pequenos filtros chamados \textit{kernels} ou \textit{feature detectors}. Esses filtros percorrem a imagem de entrada realizando uma operação de convolução, Figura \ref{fig10}, responsável por extrair padrões locais, como bordas, texturas e formas simples \cite{goodfellow2016deep}.
+
+A saída da operação de convolução \( O(i,j) \) entre um kernel \( F \in \mathbb{R}^{k \times k} \) e uma imagem \( I \) é dada pela equação \ref{eq4}:
+
+\begin{equation}
+    O(i,j) = \sum_{m=1}^{k}\sum_{n=1}^{k} F(m,n) \cdot I(i+m-1, j+n-1)
+    \label{eq4}
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Figures/conv.png}
+    \caption{Operação de convolução. Adaptada de \cite{goodfellow2016deep}.}
+    \label{fig10}
+\end{figure}
+
+\subsection{Função de ativação ReLU}
+
+Após a convolução, é aplicada uma função de ativação para introduzir não-linearidade no modelo. A mais comum é a \textit{ReLU (Rectified Linear Unit)}, definida pela equação \eqref{eq5}:
+
+\begin{equation}
+    \text{ReLU}(x) = \max(0, x)
+    \label{eq5}
+\end{equation}
+
+A ReLU descarta valores negativos e preserva os positivos, promovendo a esparsidade das ativações e reduzindo o risco de saturação, o que acelera o treinamento e melhora a performance de redes profundas, como representado na Figura \ref{fig11} \cite{nair2010rectified}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Figures/relu.png}
+    \caption{Função de ativação ReLU.}
+    \label{fig11}
+\end{figure}
+
+\subsection{\textit{Pooling} (Subamostragem)}
+
+A operação de \textit{pooling} tem como função reduzir a dimensionalidade das representações, Figura \ref{fig12}, preservar as características mais relevantes e evitar o sobreajuste. São utilizadas janelas móveis sobre a imagem convoluída para realizar uma redução da informação local.
+
+\begin{itemize}
+    \item \textbf{\textit{Max Pooling}}: Seleciona o maior valor da região analisada.
+    \item \textbf{\textit{Average Pooling}}: Calcula a média dos valores na região.
+\end{itemize}
+
+Entre os dois, o \textit{Max Pooling} é preferido por sua capacidade de preservar contornos e elementos dominantes \cite{scherer2010evaluation}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figures/pool.png}
+    \caption{Comparação entre o \textit{Max Pooling} e \textit{Average Pooling} \cite{rakshit2021cross}.}
+    \label{fig12}
+\end{figure}
+
+\subsection{\textit{Flattening} e camadas densas}
+
+Após várias camadas de convolução e \textit{pooling}, a estrutura tridimensional resultante é convertida em um vetor unidimensional por meio do processo de \textit{flattening}. Esse vetor é então passado para camadas densas (ou \textit{fully connected}), que são responsáveis pelas decisões finais do modelo, como classificação ou regressão.
+
+\subsection{EfficientNet-B0}
+
+
+A EfficientNet-B0, representada pela Figura \ref{eff}, é uma arquitetura moderna de \textit{rede neural convolucional} projetada para equilibrar alto desempenho preditivo com eficiência computacional. Proposta por Tan \& Le \cite{tan2019efficientnet}, esta arquitetura introduz o conceito de \textit{compound scaling}, que permite dimensionar de forma balanceada a profundidade, largura e resolução da rede, ao contrário de abordagens tradicionais que aumentam apenas um desses fatores isoladamente.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Figures/eff.png}
+    \caption{Arquitetura do EfficientNet-B0 \cite{ahmed2022classification}}
+    \label{eff}
+\end{figure}
+
+A arquitetura da EfficientNet-B0 é baseada em \textit{Mobile Inverted Bottleneck Convolution (MBConv)}, que combina convoluções ponto a ponto e convoluções \textit{depthwise} para reduzir o custo computacional sem comprometer a expressividade da rede. Além disso, incorpora mecanismos de \textit{squeeze-and-excitation}, que ajustam dinamicamente a importância de diferentes canais, melhorando a capacidade de capturar características relevantes da imagem.
+
+Entre as principais contribuições da EfficientNet-B0 destacam-se: (i) alta eficiência computacional, permitindo desempenho competitivo mesmo em dispositivos com recursos limitados; (ii) melhor generalização em \textit{datasets} de diferentes tamanhos e complexidades; (iii) uso otimizado de parâmetros, reduzindo o risco de sobreajuste; e (iv) capacidade de escalonamento sistemático para variantes maiores (B1–B7), mantendo consistência de desempenho em tarefas mais complexas.
+
+A EfficientNet-B0 consolidou-se para tarefas de visão computacional, sendo amplamente utilizada em classificações de imagens médicas, reconhecimento de objetos e outros cenários que exigem redes precisas e leves. Sua combinação de precisão e eficiência estabelece novos padrões para o desenvolvimento de modelos robustos e práticos em aplicações reais.
+
+% ---
+\section{Inteligência artificial generativa}
+% ---
+
+Dentre os diversos modelos disponíveis para geração de dados sintéticos, foram utilizadas as Redes Adversárias Generativas, conhecidas como \textit{Generative Adversarial Networks} (GANs), propostas por Goodfellow et al. em 2014 \cite{goodfellow2014generative}. Elas representam uma das abordagens mais inovadoras para geração de dados sintéticos em diversas áreas, como visão computacional, processamento de linguagem natural e síntese de áudio.
+
+Uma arquitetura típica de GAN é composta por dois modelos principais:
+
+\begin{itemize}
+    \item \textbf{Gerador}: Responsável por produzir amostras sintéticas que buscam imitar os dados reais.
+    \item \textbf{Discriminador}: Tenta distinguir entre as amostras reais, oriundas do conjunto de dados original, e as amostras falsas, geradas pelo Gerador.
+\end{itemize}
+
+Esses dois modelos são treinados de maneira simultânea em um processo de otimização adversarial, onde o gerador tenta enganar o discriminador, e este, por sua vez, tenta melhorar sua capacidade de distinção \cite{creswell2018generative}.
+
+O treinamento de uma GAN é baseado em um processo competitivo, representado na Figura \ref{fig13}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Figures/gan.jpg}
+    \caption{Esquema de treinamento da GAN.}
+    \label{fig13}
+\end{figure}
+
+A seguir, detalham-se as principais funções de cada rede:
+
+A Rede Geradora é uma rede neural que recebe como entrada um vetor de ruído aleatório, geralmente amostrado de uma distribuição uniforme ou normal, e gera uma saída \( G(z) \) que busca se assemelhar aos dados reais. O objetivo é maximizar a probabilidade de que o discriminador classifique suas amostras como reais \cite{goodfellow2016nips}.
+
+O Discriminador é uma rede neural que tem como função principal classificar as amostras como reais ou falsas. A rede é alimentada tanto com os dados reais do conjunto de treinamento quanto com os dados sintéticos produzidos pelo gerador. Sua saída é normalmente uma probabilidade, calculada via função de ativação sigmoide \cite{radford2015unsupervised}.
+
+O treinamento de uma GAN é formalizado como um problema min-max, onde o discriminador tenta maximizar a probabilidade de classificar corretamente as amostras, enquanto o gerador tenta minimizar essa probabilidade. A função de perda é expressa pela equação \eqref{eq6}:
+
+\begin{equation}
+    \min_G \max_D V(D, G) = \mathbb{E}_{x \sim p_{\text{data}}(x)}[\log D(x)] + \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))],
+    \label{eq6}
+\end{equation}
+
+\noindent onde \( D(x) \) descreve a probabilidade atribuída pelo discriminador para uma amostra real \( x \), \( G(z) \) a saída gerada pelo gerador a partir de um vetor de ruído \( z \), \( p_{\text{data}}(x) \) a distribuição dos dados reais e \( p_z(z) \) a distribuição do ruído de entrada.
+
+O processo de treinamento das GANs é realizado utilizando o algoritmo de retropropagação do erro (\textit{backpropagation}), com o método de \textit{gradient descent} para atualização dos pesos das redes \cite{goodfellow2016nips}.
+
+O treinamento ocorre em duas fases principais, repetidas iterativamente:
+
+\begin{enumerate}
+    \item \textbf{Atualização do discriminador}: O discriminador é treinado para aumentar sua capacidade de classificar corretamente amostras reais e falsas.
+    \item \textbf{Atualização do gerador}: O gerador é treinado para melhorar a qualidade das amostras sintéticas, com o objetivo de enganar o discriminador.
+\end{enumerate}
+
+Nas GANs destinadas ao processamento de imagens, como as \textit{Deep Convolutional GANs} (DCGANs), tanto o gerador quanto o discriminador são implementados utilizando redes neurais convolucionais (CNNs) \cite{radford2015unsupervised}.
+
+\begin{itemize}
+    \item O gerador utiliza camadas convolucionais transpostas (\textit{Transposed Convolutional Layers}) para converter o vetor de ruído em uma imagem com estrutura espacial coerente.
+    \item O discriminador aplica camadas convolucionais padrão para extrair características discriminativas que auxiliem na classificação entre imagens reais e falsas.
+\end{itemize}
+
+As GANs têm sido amplamente aplicadas em diversas áreas:
+
+\begin{itemize}
+    \item \textbf{Geração de imagens realistas}: Produção de rostos humanos, objetos ou imagens médicas sintéticas \cite{karras2019style}.
+    \item \textbf{Aprimoramento de imagens}: Técnicas de \textit{super-resolution} para aumentar a resolução de imagens \cite{ledig2017photo}.
+    \item \textbf{Transferência de estilo}: Alteração do estilo visual de imagens mantendo o conteúdo \cite{zhu2017unpaired}.
+    \item \textbf{Geração de arte e design}: Criação automática de obras artísticas \cite{elgammal2017can}.
+    \item \textbf{Geração de dados para treinamento}: Uso de dados sintéticos para balanceamento de conjuntos de dados ou aumento de amostras raras \cite{frid2018synthetic}.
+\end{itemize}
+
+Apesar de seu potencial, o treinamento de GANs apresenta diversos desafios, entre eles:
+
+\begin{itemize}
+    \item \textbf{Instabilidade no treinamento}: O equilíbrio entre as duas redes pode ser difícil de alcançar, resultando em flutuações ou não convergência \cite{arjovsky2017towards}.
+    \item \textbf{Colapso de modo (\textit{Mode collapse})}: O gerador pode aprender a produzir apenas um pequeno número de amostras, prejudicando a diversidade dos dados gerados \cite{salimans2016improved}.
+    \item \textbf{Sensibilidade a hiperparâmetros}: Pequenas variações nos hiperparâmetros podem levar a grandes mudanças no desempenho do modelo.
+\end{itemize}
+
+\subsection{DCGAN}
+
+A \textit{Deep Convolutional Generative Adversarial Network} (DCGAN) representa um marco no desenvolvimento de redes generativas, introduzindo pela primeira vez uma arquitetura totalmente convolucional para ambos os componentes da GAN. Proposta por Radford et al. \cite{radford2015unsupervised}, essa abordagem resolveu problemas fundamentais das GANs originais, especialmente na geração de imagens com alta fidelidade visual.
+
+O núcleo inovador da DCGAN reside na substituição das camadas densamente conectadas por operações convolucionais especializadas. No gerador, camadas convolucionais transpostas permitem a transformação progressiva de um vetor latente de baixa dimensão em imagens com estrutura espacial coerente. Paralelamente, o discriminador utiliza uma arquitetura CNN convencional para classificação, porém otimizada para o contexto adversarial.
+
+Entre as contribuições técnicas mais impactantes destacam-se: (i) a aplicação sistemática de \textit{batch normalization} em todas as camadas exceto a de saída do gerador e entrada do discriminador, (ii) o uso combinado de funções de ativação ReLU (gerador) e LeakyReLU (discriminador), e (iii) a eliminação de camadas totalmente conectadas nas camadas intermediárias. Esses avanços permitiram pela primeira vez o treinamento estável de redes generativas profundas.
+
+A importância histórica da DCGAN se manifesta em três dimensões principais: estabelece padrões arquiteturais que permanecem relevantes, demonstra a viabilidade prática de GANs profundas e possibilita novas aplicações em síntese de imagens.
+
+\subsection{WGAN-GP}
+
+A WGAN-GP, ilustrada na Figura \ref{fig14}, surge como uma evolução crítica da arquitetura WGAN original, resolvendo limitações fundamentais no treinamento de redes generativas. Desenvolvida por Gulrajani et al.\cite{gulrajani2017improved} como aprimoramento do trabalho seminal de Arjovsky, Chintala, \& Bottou \cite{arjovsky2017wasserstein}, esta abordagem redefine o paradigma de otimização adversarial através da combinação inédita da métrica Wasserstein-1 com regularização explícita do gradiente.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Figures/wgan.png}
+    \caption{Esquema de treinamento da WGAN-GP. Adaptada de \cite{patil2023wgan}.}
+    \label{fig14}
+\end{figure}
+
+O cerro teórico da WGAN-GP baseia-se em três pilares inovadores: (i) a substituição da divergência de Jensen-Shannon pela distância de Wasserstein (\textit{Earth Mover's Distance}), que proporciona gradientes mais informativos mesmo com distribuições disjuntas; (ii) a imposição da condição de Lipschitz via penalização direta da norma do gradiente (Gradient Penalty), superando as limitações do \textit{weight clipping} da WGAN original; e (iii) a reformulação da função custo para manter a continuidade do espaço latente durante o treinamento.
+
+As implicações práticas dessa arquitetura manifestam-se em quatro dimensões principais. Primeiramente, a mitigação do \textit{mode collapse} através da preservação da diversidade modal nas amostras geradas. Em segundo lugar, a estabilização notável do processo de treinamento, evidenciada pela convergência mais consistente em \textit{benchmarks} complexos. Terceiro, a eliminação de artefatos de treinamento comuns em GANs tradicionais, como oscilações bruscas na função de perda. Por fim, a capacidade de treinar criticas (discriminadores) mais profundas sem comprometer a estabilidade numérica.
+
+A WGAN-GP estabeleceu novos padrões para treinamento de modelos generativos, influenciando diretamente o desenvolvimento de arquiteturas subsequentes como Progressive GANs e StyleGAN. Sua principal contribuição reside na demonstração empírica de que a combinação de métricas Wasserstein com regularização geométrica permite o treinamento estável de redes profundas em espaços de alta dimensionalidade, superando limitações fundamentais das formulações adversarial clássicas.
+
+\subsection{\textit{Conditional} GAN}
+
+A \textit{Conditional Generative Adversarial Network} (cGAN), Figura \ref{fig15}, representa um avanço paradigmático no controle de saída de redes generativas, introduzindo o conceito de aprendizado condicional no \textit{framework} adversarial. Proposta pioneiramente por Mirza \cite{mirza2014conditional}, esta arquitetura estende o princípio básico das GANs ao incorporar informações auxiliares tanto no gerador quanto no discriminador, permitindo controle preciso sobre as características das amostras geradas.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Figures/cgan.jpg}
+    \caption{Esquema de treinamento da cGAN. Adaptada de \cite{li2025conditional}.}
+    \label{fig15}
+\end{figure}
+
+O mecanismo fundamental da cGAN baseia-se na concatenação do vetor latente tradicional $z$ com vetores de condicionamento $y$, que podem representar classes discretas, atributos contínuos ou mesmo outras modalidades de dados. Esta modificação aparentemente simples produz impactos profundos: (i) o espaço latente torna-se particionado de acordo com as condições de entrada, (ii) o discriminador aprende a avaliar não apenas a realisticidade mas também a consistência semântica com a condição fornecida, e (iii) o processo gerativo adquire capacidade de controle fino sobre os atributos de saída.
+
+As aplicações da cGAN destacam-se em três domínios principais. Na síntese de imagens, permite a geração de amostras por categoria específica. Em tradução imagem-a-imagem, viabiliza mapeamentos condicionados entre domínios visuais. Por fim, em tarefas de manipulação, possibilita a edição precisa de atributos em imagens existentes (como modificação de expressões faciais ou estilos artísticos).
+
+A cGAN estabeleceu as bases para toda uma família de modelos condicionais subsequentes, incluindo arquiteturas como AC-GAN, InfoGAN e \textit{Projection} GAN. Sua principal contribuição reside na demonstração de que o \textit{framework} adversarial pode ser estendido para aprendizado supervisionado e semi-supervisionado, mantendo simultaneamente as vantagens da geração não-condicional. Este avanço abriu caminho para aplicações práticas onde o controle preciso sobre as características geradas é essencial.
+
+\subsection{StyleGAN2-ADA}
+
+O \textit{StyleGAN2-ADA} representa uma evolução significativa no campo de redes generativas adversariais, incorporando avanços de estilo e regularização adaptativa para melhorar a qualidade de imagens sintéticas e a estabilidade do treinamento. Proposto por Karras et al. \cite{karras2020training}, esta arquitetura refina o \textit{StyleGAN2} original ao introduzir \textit{Adaptive Discriminator Augmentation (ADA)}, um mecanismo que aplica aumentos de dados de forma controlada no discriminador para combater sobreajuste, especialmente em conjuntos de dados de pequeno porte.
+
+A arquitetura do \textit{StyleGAN2-ADA} mantém o conceito central de \textit{style-based generator}, em que um vetor latente $z$ é transformado em um vetor de estilos $w$, que modula múltiplos \textit{layers} de convolução através de operações de \textit{adaptive instance normalization (AdaIN)}. Esta abordagem permite controlar características de diferentes níveis de detalhe na imagem, desde atributos globais (como pose e estrutura) até texturas finas (como detalhes de pele ou tecidos). O mecanismo ADA, por sua vez, aplica aumentos de imagem adaptativos apenas quando o discriminador mostra sinais de sobreajuste, equilibrando a diversidade das amostras geradas sem degradar a qualidade.
+
+Entre as principais contribuições do \textit{StyleGAN2-ADA} destacam-se: (i) melhoria significativa na fidelidade visual das imagens sintéticas, (ii) redução de artefatos presentes nas gerações do StyleGAN original, (iii) robustez ao treinamento com datasets pequenos ou desbalanceados, e (iv) controle hierárquico dos atributos da imagem por meio do espaço de estilos.
+
+O \textit{StyleGAN2-ADA} consolidou-se como referência no desenvolvimento de GANs avançadas, servindo de base para variantes condicionais e projetos de geração de alta fidelidade. Sua capacidade de gerar imagens realistas com controle detalhado de atributos, mesmo com bases limitadas, destaca-se como um avanço para pesquisas que dependem de dados sintéticos de qualidade, conforme demonstrado por Karras et al.~\cite{karras2020training}.
+
+\section{Métricas de avaliação de qualidade de imagem}
+\label{sec:metricas}
+
+A avaliação da qualidade de imagens geradas ou reconstruídas é uma etapa fundamental em tarefas de visão computacional, especialmente no contexto de redes neurais profundas, como autoencoders ou redes adversárias generativas (GANs). A escolha adequada da métrica de avaliação é importante para medir o quão próxima a imagem produzida está da imagem original, tanto em termos objetivos quanto subjetivos.
+
+Métricas tradicionais, como PSNR e SSIM, baseiam-se em comparações matemáticas entre pixels e propriedades estruturais da imagem, sendo amplamente utilizadas por sua simplicidade e eficiência. Contudo, com o avanço das técnicas de geração de imagens, surgiu a necessidade de métricas que reflitam melhor a percepção visual humana, pois pequenas distorções imperceptíveis podem resultar em baixas pontuações nas métricas tradicionais, mesmo quando as imagens parecem visualmente similares.
+
+Neste contexto, surgem métricas perceptuais, como o LPIPS (\textit{Learned Perceptual Image Patch Similarity}), que utilizam redes neurais treinadas para estimar a similaridade entre imagens de maneira mais próxima à forma como os humanos as percebem.
+
+\subsection{PSNR}
+
+O \textit{Peak Signal-to-Noise Ratio} (PSNR) é uma métrica objetiva que quantifica a diferença entre a imagem original e a imagem reconstruída, sendo expressa em decibéis (dB). O PSNR é derivado do erro quadrático médio (MSE – \textit{Mean Squared Error}), conforme definido na equação \eqref{eq:psnr}:
+
+\begin{equation}
+\label{eq:psnr}
+\text{PSNR} = 10 \cdot \log_{10}\left(\frac{MAX_I^2}{\text{MSE}}\right),
+\end{equation}
+
+\noindent onde $MAX_I$ é o valor máximo possível de pixel (por exemplo, 255 para imagens em 8 bits) e
+
+\begin{equation}
+\text{MSE} = \frac{1}{mn} \sum_{i=0}^{m-1} \sum_{j=0}^{n-1} [I(i,j) - K(i,j)]^2.
+\end{equation}
+
+Em geral, quanto maior o valor de PSNR, maior é a similaridade entre as imagens. Contudo, o PSNR não leva em consideração aspectos perceptuais ou estruturais da imagem, limitando sua efetividade em contextos onde pequenas variações semânticas são relevantes~\cite{hore2010image}.
+
+\subsection{SSIM}
+
+O \textit{Structural Similarity Index} (SSIM) foi proposto como uma alternativa ao PSNR, com o objetivo de quantificar a similaridade entre imagens considerando características perceptuais humanas, como luminância, contraste e estrutura. A métrica é definida pela equação \eqref{eq:ssim}:
+
+\begin{equation}
+\label{eq:ssim}
+\text{SSIM}(x, y) = \frac{(2\mu_x\mu_y + C_1)(2\sigma_{xy} + C_2)}{(\mu_x^2 + \mu_y^2 + C_1)(\sigma_x^2 + \sigma_y^2 + C_2)},
+\end{equation}
+
+\noindent onde $\mu_x$ e $\mu_y$ são as médias das imagens $x$ e $y$, $\sigma_x^2$ e $\sigma_y^2$ são as variâncias, $\sigma_{xy}$ é a covariância, e $C_1$, $C_2$ são constantes de estabilização~\cite{wang2004image}.
+
+O valor de SSIM varia entre -1 e 1, onde valores próximos de 1 indicam alta similaridade estrutural entre as imagens. O SSIM é mais robusto que o PSNR em diversos contextos, mas ainda apresenta limitações em avaliar imagens com alterações semânticas sutis.
+
+\subsection{LPIPS}
+
+O \textit{Learned Perceptual Image Patch Similarity} (LPIPS) é uma métrica de similaridade perceptual baseada em redes neurais profundas, desenvolvida para avaliar a qualidade visual de imagens com maior correlação com a percepção humana~\cite{zhang2018unreasonable}. Diferente de PSNR e SSIM, o LPIPS opera sobre representações internas de redes convolucionais treinadas, como AlexNet, VGG ou SqueezeNet.
+
+\subsubsection{Funcionamento}
+
+O LPIPS funciona conforme os seguintes passos:
+
+\begin{enumerate}
+    \item Duas imagens são passadas por uma rede neural convolucional pré-treinada.
+    \item Ativações (ou \textit{feature maps}) de diferentes camadas da rede são extraídas para ambas as imagens.
+    \item Calcula-se a distância L2 entre as ativações correspondentes de cada camada.
+    \item L2 é ponderada por pesos treinados que refletem a importância perceptual das camadas.
+    \item A soma ponderada das distâncias resulta no valor final do LPIPS.
+\end{enumerate}
+
+A equação geral do LPIPS é definida pela equação \eqref{eq210}:
+
+\begin{equation}
+\text{LPIPS}(x, y) = \sum_{l} w_l \cdot \| f_l(x) - f_l(y) \|_2^2,
+\label{eq210}
+\end{equation}
+
+\noindent onde $f_l(\cdot)$ representa os mapas de características da camada $l$ e $w_l$ são os pesos aprendidos.
+
+\subsubsection{Vantagens e limitações}
+
+O LPIPS apresenta diversas vantagens:
+
+\begin{itemize}
+    \item Alta correlação com avaliações humanas;
+    \item Sensível a distorções perceptualmente relevantes;
+    \item Ideal para tarefas envolvendo GANs ou geração de imagem.
+\end{itemize}
+
+Entretanto, a métrica também possui limitações:
+
+\begin{itemize}
+    \item Depende da arquitetura da rede base;
+    \item Custo computacional elevado;
+    \item Escala não intuitiva para interpretação direta.
+\end{itemize}
+
+Valores próximos de zero, equação \eqref{eq210}, indicam alta similaridade perceptual, enquanto valores maiores sugerem diferenças perceptíveis entre as imagens.
+
+% ---
+\section{Trabalhos correlatos: dados mamográficos rotulados}
+% ---
+
+Diversos estudos têm explorado o uso de Redes Geradoras Adversariais (GANs) na geração de imagens sintéticas para mitigar os desafios relacionados à escassez de dados mamográficos rotulados. A seguir, são apresentados os principais trabalhos correlatos que embasaram este TCC, com foco nas estratégias de geração de dados e nos impactos observados na performance de modelos de classificação.
+
+Desai et al. \cite{desai2020breast} propuseram a utilização de DCGANs para gerar imagens sintéticas a partir de um conjunto limitado de mamografias do banco de dados DDSM. O objetivo do trabalho foi superar o problema da escassez de dados rotulados e melhorar a acurácia da classificação de lesões mamárias. Os autores validaram a qualidade das imagens geradas por meio de um teste de Turing com especialistas e análise via ImageJ, observando um aumento de 8,77\% na precisão de um modelo CNN simples ao incluir imagens sintéticas no conjunto de treinamento.
+
+Joseph et al. \cite{joseph2024prior} avançaram ao empregar uma arquitetura de cGAN baseada em UNet e discriminador PatchGAN para a geração de imagens sintéticas a partir do banco de dados MIAS. O estudo demonstrou que o balanceamento do conjunto de dados por meio de imagens sintéticas levou a um ganho de 3,9\% na acurácia da classificação de câncer de mama. A avaliação foi conduzida por meio da métrica de Distância de Início de Fréchet (FID), além de métricas tradicionais de classificação, como precisão e F1-score.
+
+No trabalho de Guan e Loew \cite{guan2019breast}, os autores compararam diretamente o impacto de imagens sintéticas geradas por GANs com técnicas tradicionais de aumento de dados (como transformações afins) no desempenho de um classificador CNN. Utilizando também o banco DDSM, os resultados indicaram que o uso de dados sintéticos levou a uma melhora de 3,6\% na acurácia de validação em relação às transformações afins. No entanto, os autores ressaltam que as imagens reais ainda são insubstituíveis, pois o uso exclusivo de dados sintéticos pode acarretar \textit{overfitting}.
+
+Shah et al. \cite{shah2024reliable} utilizaram o banco OPTIMAM para treinar uma rede DCGAN com arquitetura inspirada na U-Net, com o objetivo de gerar mamografias sintéticas que preservassem padrões e características realistas. A qualidade das imagens geradas foi avaliada por similaridade média, métricas estatísticas e validação por especialistas humanos, demonstrando que as imagens sintéticas produzidas possuíam alta fidelidade visual em relação às imagens reais.
+
+Jiménez-Gaona et al. \cite{jimenez2024gan} realizaram um estudo comparativo entre diferentes variantes de GANs, incluindo WGAN-GP, CycleGAN, cGAN e SNGAN, para gerar dados sintéticos a partir de múltiplos bancos de dados (BUSI, DDSM, MIAS, InBreast). A análise revelou que o SNGAN apresentou melhor desempenho para mamografias em termos de FID, enquanto o CycleGAN obteve melhor diversidade e fidelidade visual. O estudo também destacou que o desempenho dos modelos de classificação, como o ResNet-18, depende fortemente da escolha do modelo GAN e das características específicas do conjunto de dados.
+
+Wu et al. \cite{wu2018conditional} propuseram uma abordagem de GAN condicional com preenchimento contextual (ciGAN), com o objetivo de sintetizar lesões malignas em mamografias saudáveis. O treinamento foi feito em nível de patch (256x256) e as imagens geradas foram avaliadas quanto à capacidade de melhorar o desempenho de classificadores. O modelo ciGAN demonstrou ser capaz de gerar lesões realistas e aumentar a generalização dos modelos de classificação em relação a técnicas de aumento tradicionais.
+
+Por fim, Shen et al. \cite{shen2021mass} propuseram uma abordagem em três estágios para gerar massas malignas realistas em mamografias normais. Inicialmente, máscaras de segmentação foram geradas por uma DCGAN, posteriormente combinadas com tecidos normais por um GAN de preenchimento baseado em CRN e U-Net. Os resultados indicaram que a abordagem aumentou a diversidade do conjunto de dados e melhorou o desempenho dos modelos de detecção em bases pequenas e desbalanceadas.
+
+\begin{table}[H]
+\centering
+\caption{Comparativo das abordagens para geração de mamografias sintéticas.}
+\label{tab:comparativo_artigos}
+\begin{tabularx}{\textwidth}{lXll}
+\toprule
+\textbf{Estudo} & \textbf{Abordagem} & \textbf{Base de Dados} & \textbf{Resultados} \\
+\midrule
+\cite{desai2020breast} & DCGAN & DDSM (287 imagens) & Acurácia +8.77\% \\
+\cite{joseph2024prior} & cGAN & MIAS (322 imagens) & Melhoria de 3.9\% \\
+\cite{guan2019breast} & GAN tradicional & DDSM (2620 imagens) & +3.6\% vs aumento afim \\
+\cite{shah2024reliable} & DCGAN modificada & OPTIMAM (26k imagens) & Validação especialista 87\% \\
+\cite{jimenez2024gan} & Multi-GANs & Vários conjuntos & FID 52,89 (SNGAN) \\
+\cite{wu2018conditional} & ciGAN & DDSM (10k imagens) & Superior a aumento tradicional \\
+\cite{shen2021mass} & DCGAN + preenchimento & DDSM + Hospital Nanfang & Melhoria em datasets pequenos \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Em síntese, os estudos analisados demonstram de forma consistente que o uso de GANs para geração de dados sintéticos contribui significativamente para a melhoria da acurácia e generalização de modelos de detecção de lesões mamárias, especialmente em contextos onde há escassez de dados rotulados. As abordagens variam desde arquiteturas mais simples como DCGANs até variantes mais sofisticadas como cGANs condicionais, ciGANs e GANs com normalização espectral, refletindo a evolução da aplicação dessas redes no domínio médico.
+
+Diferentemente dos trabalhos analisados, esta pesquisa propõe uma abordagem que usa StyleGAN2-ADA, buscando maior estabilidade no treinamento e geração de imagens de alta qualidade. Além disso, será utilizada a métrica LPIPS para avaliar a similaridade perceptual entre as imagens sintéticas e mamografias reais, proporcionando uma análise mais próxima da percepção humana em relação à fidelidade visual. Outro diferencial é o foco na utilização das imagens sintéticas para aprimorar a detecção de lesões benignas e malignas em classificadores, permitindo uma avaliação detalhada do impacto dos dados gerados não apenas na acurácia geral, mas também na capacidade dos modelos em diferenciar tipos de lesões.
